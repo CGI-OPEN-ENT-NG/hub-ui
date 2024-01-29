@@ -5,7 +5,7 @@ import * as path from 'path';
 
 const resolve = {
   alias:{
-    '@hub-ui/base' : path.resolve(__dirname, '../../packages/base/src/index.ts')
+    '@cgi-learning-hub/ui' : path.resolve(__dirname, '../../packages/ui/src/index.ts')
   }
 }
 

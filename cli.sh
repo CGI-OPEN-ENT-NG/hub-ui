@@ -24,7 +24,7 @@ install () {
 }
 
 # run local test ui
-runLocalUi() {
+runDev() {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run start-app-local-ui
 }
 
@@ -79,8 +79,8 @@ do
     install)
       install
       ;;
-    runLocalUi)
-      runLocalUi
+    runDev)
+      runDev
       ;;
     storybook)
       storybook

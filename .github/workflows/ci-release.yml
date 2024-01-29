@@ -20,7 +20,7 @@ jobs:
         run: pnpm run build
       - name: Update package version
         run: sh -c ".github/scripts/ci/update_dev_version.sh"
-      - name: Publish  
-        run: sh -c ".github/scripts/ci/deploy_artifacts.sh"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish  
+      #   run: sh -c ".github/scripts/ci/deploy_artifacts.sh"
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,7 +1,6 @@
 import React from 'react';
 import ExampleComponent from './components/ExampleComponent';
-import { BasicButtons } from '@cgi-learning-hub/ui';
-
+import { BasicButtons, AnotherComponent } from '@cgi-learning-hub/ui';
 
 const App = () => {
   return (
@@ -10,6 +9,9 @@ const App = () => {
       <ExampleComponent text="This is an example component test." />
       {/* component from ui  */}
       <BasicButtons/>
+
+      <AnotherComponent/>
+
     </div>
   );
 };
