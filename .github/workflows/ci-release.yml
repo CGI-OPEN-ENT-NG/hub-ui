@@ -1,0 +1,26 @@
+name: ci-release
+
+on: [push]
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:18-alpine
+      options: --user root -v ${{ github.workspace }}:/home/node/:rw
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install PNPM
+        run: npm install -g pnpm
+      - name: Run install
+        run: pnpm install
+      - name: Run build
+        run: pnpm run build
+      - name: Update package version
+        run: sh -c ".github/scripts/ci/update_dev_version.sh"
+      # - name: Publish  
+      #   run: sh -c ".github/scripts/ci/deploy_artifacts.sh"
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

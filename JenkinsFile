@@ -1,0 +1,34 @@
+#!/usr/bin/env groovy
+
+pipeline {
+  agent any
+    stages {
+      stage('Init') {
+        steps {
+            checkout scm
+            sh 'chmod +x cli.sh && ./cli.sh install'
+        }
+      }
+      stage('Build') {
+        steps {
+            sh './cli.sh build'
+        }
+      }
+      stage('Deploy') {
+        steps {
+            sh './cli.sh publish'
+        }
+      }
+      stage('Clear') {
+        steps {
+            sh './cli.sh clear'
+        }
+      }
+    }
+    post {
+      failure {
+            sh './cli.sh clear'
+      }
+    }
+
+}

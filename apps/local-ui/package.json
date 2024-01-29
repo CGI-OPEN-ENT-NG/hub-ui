@@ -1,0 +1,18 @@
+{
+  "name": "hub-ui-local",
+  "private": true,
+  "main": "index.tsx",
+  "scripts": {
+    "dev": "vite",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@cgi-learning-hub/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18"
+  }
+}
