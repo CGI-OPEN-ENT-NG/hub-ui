@@ -1,20 +1,20 @@
 {
-  "name": "@cgi-learning-hub/ui",
+  "name": "@cgi-learning-hub/theme",
   "version": "0.0.1-dev",
   "private": false,
   "author": "CGI Learning-hub Team",
-  "description": "@cgi-learning-hub/ui is an open-source React component library that implements UI for HUB's features",
+  "description": "@cgi-learning-hub/theme is a theme implemented with tailwindcss",
   "keywords": [
     "cgi-learning-hub",
-    "react",
-    "react-component",
+    "tailwind",
+    "tailwindcss",
     "hub",
     "hub-ui"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/CGI-OPEN-ENT-NG/hub-ui.git",
-    "directory": "packages/ui"
+    "directory": "packages/theme"
   },
   "sideEffects": false,
   "type": "module",
@@ -24,25 +24,20 @@
     }
   },
   "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "postcss ./src/index.css -o ./src/output.css",
+    "build": "postcss ./src/index.css -o ./src/output.css && vite build",
     "build:watch": "vite build --watch"
   },
   "devDependencies": {
     "@mui/material": "5.15.7",
+    "@tailwindcss/line-clamp": "0.4.4",
     "autoprefixer": "10.4.17",
     "postcss": "8.4.33",
+    "postcss-cli": "^11.0.0",
     "tailwindcss": "3.4.1"
-  },
-  "peerDependencies": {
-    "@types/react": "18.2.48",
-    "@types/react-dom": "18.2.18",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
   }
 }

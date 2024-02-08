@@ -1,3 +1,4 @@
 packages:
+  - "./packages/theme"
   - "./packages/ui"
   - "./apps/**"
