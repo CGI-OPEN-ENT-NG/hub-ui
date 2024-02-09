@@ -1,4 +1,4 @@
-import { TailwindTheme, getMuiTheme } from "./utils";
+import { TailwindTheme, getMuiTheme } from "../utils";
 
 const tailwindTheme: TailwindTheme = {
   extend: {

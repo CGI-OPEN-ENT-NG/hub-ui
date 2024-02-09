@@ -9,9 +9,10 @@
     "start-ui-library": "cd packages/ui && pnpm run dev",
     "build-theme-library-watch": "cd packages/theme && pnpm run build:watch",
     "build-ui-library-watch": "cd packages/ui && pnpm run build:watch",
-    "clean": "rm -rf */**/node_modules && rm -rf node_modules && rm -f pnpm-lock.yaml && rm -rf */**/dist",
+    "clean": "rm -rf */**/node_modules && rm -rf node_modules && rm -rf */**/dist",
     "build": "pnpm -r run build",
     "publish": "pnpm publish -r --access public",
+    "publish:dev": "pnpm publish -r --access public --tag develop",
     "storybook": "storybook dev -p 6006"
   },
   "devDependencies": {

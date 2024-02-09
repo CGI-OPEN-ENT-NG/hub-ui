@@ -98,7 +98,7 @@ We will be using example to run locally these projects
 
 In your main repository where you want to use you library locally in dependencies
 
-Add `"file:../hub-ui/packages/auth"` (as the library is in the folder "hub-ui")
+Add `"file:../hub-ui/packages/ui"` (as the library is in the folder "hub-ui")
 
 If you use `file:` mode, you will need to build your library local and in your main repository, re-run install deps
 
@@ -116,7 +116,7 @@ pnpm run build-theme-library-watch
 ```json
 # Example
 "devDependencies": {
-    "@hub-ui/base": "file:../hub-ui/packages/base"
+    "@cgi-learning-hub/ui": "file:../hub-ui/packages/ui"
 },
 ```
 
@@ -132,7 +132,7 @@ services:
     ...
     volumes:
         ...
-        - ../../project/hub-ui/packages/base:/hub-ui/packages/base
+        - ../../project/hub-ui/packages/ui:/hub-ui/packages/ui
 ```
 
 ### local run library (ViteJS)
@@ -141,7 +141,7 @@ services:
 ```ts
   const resolve = {
     alias:{
-      '@hub-ui/base' : path.resolve(__dirname, '/hub-ui/packages/base/src/index.ts'),
+      '@cgi-learning-hub/ui' : path.resolve(__dirname, '/hub-ui/packages/ui/src/index.ts'),
     }
   }
 
@@ -158,20 +158,20 @@ services:
 # wip to live reloading
 "paths": {
   "@/*": ["./src/*"],
-  "@hub-ui/base": ["../hub-ui/packages/base/src/index.ts"]
+  "@cgi-learning-hub/ui": ["../hub-ui/packages/ui/src/index.ts"]
 }
 
 
 # packages.json
 "devDependencies": {
   ...
-  "@hub-ui/base": "file:../hub-ui/packages/base/src/index.ts",
+  "@cgi-learning-hub/ui": "file:../hub-ui/packages/ui/src/index.ts",
 }
 
 # docker-compose.yml
 volumes:
   - ./:/app
-  - ../project/hub-ui/packages/base:/hub-ui/packages/base
+  - ../project/hub-ui/packages/ui:/hub-ui/packages/ui
 ```
 
 From this library repository, run `pnpm run build:watch` from any libs you would like to work
