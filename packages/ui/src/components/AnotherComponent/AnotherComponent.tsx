@@ -1,6 +1,5 @@
 import { ButtonBase, Input } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import "../../index.css";
 
 const AnotherComponent = () => {
   const theme = useTheme();

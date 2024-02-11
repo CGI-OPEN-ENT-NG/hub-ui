@@ -154,24 +154,34 @@ services:
 
 ## local library from NextJS app
 
-```
-# wip to live reloading
-"paths": {
-  "@/*": ["./src/*"],
-  "@cgi-learning-hub/ui": ["../hub-ui/packages/ui/src/index.ts"]
+You need to install these dependencies if you use `ui` package in your NextJS project :
+  - `"@mui/material": "5.15.7"`
+  - `"@emotion/styled": "11.11.0"`
+  - `"@emotion/react": "11.11.3"`
+
+You will need to add `"@cgi-learning-hub/ui` in devDependencies and add in docker-compose.yml your local project mount volumes
+
+In your next.config.js you will have to add `transpilePackages` :
+
+```js
+const nextConfig = {
+   ...
+   transpilePackages: ['@cgi-learning-hub'],
+   ...
 }
+```
 
-
+```json
 # packages.json
 "devDependencies": {
   ...
-  "@cgi-learning-hub/ui": "file:../hub-ui/packages/ui/src/index.ts",
+  "@cgi-learning-hub/ui": "file:../hub-ui/packages/ui",
 }
 
 # docker-compose.yml
 volumes:
   - ./:/app
-  - ../project/hub-ui/packages/ui:/hub-ui/packages/ui
+  - ../project/hub-ui/packages/ui:/hub-ui/packages/ui <== localisation de votre projet ui local
 ```
 
 From this library repository, run `pnpm run build:watch` from any libs you would like to work
