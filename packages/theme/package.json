@@ -23,7 +23,7 @@
       "import": "./dist/index.js"
     }
   },
-  "module": "dist/index.js",
+  "module": "dist/index.es",
   "files": [
     "dist"
   ],

@@ -1,5 +1,5 @@
 import "@cgi-learning-hub/theme";
-import { exampleMuiTheme, imtMuiTheme } from "@cgi-learning-hub/theme";
+import { defaultTheme, imtMuiTheme } from "@cgi-learning-hub/theme";
 import { AnotherComponent, BasicButtons } from "@cgi-learning-hub/ui";
 import {
   Button,
@@ -32,7 +32,7 @@ function App() {
   const changeTheme = () => setImtThemeActive((old) => !old);
 
   return (
-    <CssVarsProvider theme={isImtThemeActive ? imtMuiTheme : exampleMuiTheme}>
+    <CssVarsProvider theme={isImtThemeActive ? imtMuiTheme : defaultTheme}>
       <div className="App">
         <header className="App-header">        
           <div>

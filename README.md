@@ -193,3 +193,17 @@ TLDR :
 - (From NextJS repository) : `next dev` => run your local but can be make earlier
 - (From repository library) : Make any change => ViteJS build watch will proceed
 - (From NextJS repository) : `pnpm run install` or `pnpm run install <localLibraryDeps>`
+
+## Unit test
+
+For any projects that use Jest you must add : 
+
+```js
+# jest.setup.tsx
+
+jest.mock('@emotion/styled', () => {
+  return (_: any) => jest.fn((...args) => {
+    return args;
+  });
+});
+```

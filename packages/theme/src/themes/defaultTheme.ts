@@ -10,4 +10,4 @@ const tailwindTheme: TailwindTheme = {
 
 const muiTheme = getMuiTheme(tailwindTheme);
 
-export { muiTheme as exampleMuiTheme, tailwindTheme as exampleTailwindTheme };
+export { muiTheme as defaultTheme, tailwindTheme as exampleTailwindTheme };
