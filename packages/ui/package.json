@@ -35,6 +35,8 @@
     "build:watch": "vite build --watch"
   },
   "devDependencies": {
+    "@mui/icons-material": "5.15.10",
+    "@mui/lab": "5.0.0-alpha.165",
     "@mui/material": "5.15.7",
     "autoprefixer": "10.4.17",
     "postcss": "8.4.33",

@@ -1,9 +1,9 @@
-import { StoryFn, Meta } from '@storybook/react';
-import AnotherComponent from './AnotherComponent';
+import { Meta, StoryFn } from "@storybook/react";
+import AnotherComponent from "./AnotherComponent";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: 'Components/AnotherComponent',
+  title: "Components/AnotherComponent",
   component: AnotherComponent,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
@@ -14,12 +14,12 @@ const Template: StoryFn<any> = (args) => <AnotherComponent {...args} />;
 
 export const Primary: any = Template.bind({});
 Primary.args = {
-  label: 'Primary Button',
+  label: "Primary Button",
 };
 
 export const Secondary: any = Template.bind({});
 Secondary.args = {
-  label: 'Secondary Button',
+  label: "Secondary Button",
   secondary: true,
 };
 

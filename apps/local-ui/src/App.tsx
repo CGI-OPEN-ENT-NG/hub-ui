@@ -1,15 +1,17 @@
 import "@cgi-learning-hub/theme";
-import { defaultTheme, imtMuiTheme } from "@cgi-learning-hub/theme";
-import { AnotherComponent, BasicButtons } from "@cgi-learning-hub/ui";
+import { ThemeProvider } from "@cgi-learning-hub/theme";
 import {
-  Button,
-  Experimental_CssVarsProvider as CssVarsProvider,
-} from "@mui/material";
+  PrimaryButton,
+  SearchInput,
+  SecondaryButton,
+  TextInput,
+} from "@cgi-learning-hub/ui";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import { Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import React from "react";
 import "./App.css";
-import logo from "./logo.svg";
 
 const StyleButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -32,17 +34,23 @@ function App() {
   const changeTheme = () => setImtThemeActive((old) => !old);
 
   return (
-    <CssVarsProvider theme={isImtThemeActive ? imtMuiTheme : defaultTheme}>
+    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
       <div className="App">
-        <header className="App-header">        
-          <div>
-            <ButtonComponent onClick={changeTheme} />
-          </div>
-          <BasicButtons />
-          <AnotherComponent />
+        <header className="App-header">
+          <ButtonComponent onClick={changeTheme} />
+          <PrimaryButton
+            text="Bouton primaire"
+            icon={{ Component: AccessAlarmIcon, position: "left" }}
+          />
+          <SecondaryButton text="Bouton secondaire" />
+          <TextInput label="TextInput" placeholder="test" />
+          <SearchInput />
+          <Typography variant="h2" component="h2">
+            Typo h2
+          </Typography>
         </header>
       </div>
-    </CssVarsProvider>
+    </ThemeProvider>
   );
 }
 
