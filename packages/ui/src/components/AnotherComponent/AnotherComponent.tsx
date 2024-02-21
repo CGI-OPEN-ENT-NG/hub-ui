@@ -1,4 +1,5 @@
-import { ButtonBase, Input } from "@mui/material";
+import ButtonBase from "@mui/material/ButtonBase";
+import Input from "@mui/material/Input";
 import { useTheme } from "@mui/material/styles";
 
 const AnotherComponent = () => {
