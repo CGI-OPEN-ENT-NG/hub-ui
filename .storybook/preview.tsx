@@ -1,6 +1,7 @@
-// .storybook/preview.js
+// .storybook/preview.tsx
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "../packages/theme";
+import "../packages/ui/src/index.css";
 
 export const globalTypes = {
   theme: {
