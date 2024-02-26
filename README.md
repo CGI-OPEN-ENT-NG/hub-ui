@@ -161,7 +161,7 @@ You need to install these dependencies if you use `ui` package in your NextJS pr
 
 You will need to add `"@cgi-learning-hub/ui` in devDependencies and add in docker-compose.yml your local project mount volumes
 
-In your next.config.js you will have to add `transpilePackages` :
+In your next.config.js you will have to add `transpilePackages` in order to make your component work in your project (local or remote) :
 
 ```js
 const nextConfig = {
