@@ -1,26 +1,20 @@
-import { Save } from "@mui/icons-material";
 import { Meta, StoryFn } from "@storybook/react";
-import PrimaryButton from "./PrimaryButton";
+import TextInput from "./TextInput";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Buttons/PrimaryButton",
-  component: PrimaryButton,
+  title: "Components/Inputs/TextInput",
+  component: TextInput,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
   },
 };
 
-const Template: StoryFn<any> = (args) => <PrimaryButton {...args} />;
+const Template: StoryFn<any> = (args) => <TextInput {...args} />;
 
 export const Default: any = Template.bind({});
 Default.args = {
-  text: "Save",
-  icon: {
-    Component: Save,
-    position: "left",
-  },
-  onClick: () => alert("Alert"),
+  label: "Champ",
   disabled: false,
 };
 

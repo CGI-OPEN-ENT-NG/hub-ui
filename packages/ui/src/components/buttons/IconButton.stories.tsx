@@ -1,25 +1,21 @@
-import { PersonAdd } from "@mui/icons-material";
+import Fingerprint from "@mui/icons-material/Fingerprint";
+import IconButton from "@mui/material/IconButton";
 import { Meta, StoryFn } from "@storybook/react";
-import SecondaryButton from "./SecondaryButton";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Buttons/SecondaryButton",
-  component: SecondaryButton,
+  title: "Components/Buttons/IconButton",
+  component: IconButton,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
   },
 };
 
-const Template: StoryFn<any> = (args) => <SecondaryButton {...args} />;
+const Template: StoryFn<any> = (args) => <IconButton {...args} />;
 
 export const Default: any = Template.bind({});
 Default.args = {
-  text: "Add user",
-  icon: {
-    Component: PersonAdd,
-    position: "left",
-  },
+  children: <Fingerprint />,
   onClick: () => alert("Alert"),
   disabled: false,
 };
