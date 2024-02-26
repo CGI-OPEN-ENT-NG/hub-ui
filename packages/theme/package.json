@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@mui/material": "5.15.7",
+    "@mui/x-date-pickers": "^6.19.4",
     "@tailwindcss/line-clamp": "0.4.4",
     "autoprefixer": "10.4.17",
     "deepmerge": "4.3.1",
