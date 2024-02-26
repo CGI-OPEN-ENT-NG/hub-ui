@@ -207,3 +207,20 @@ jest.mock('@emotion/styled', () => {
   });
 });
 ```
+
+## import hub theme if your project uses tailwind
+
+From your tailwind.config.ts if you wish to use our theme :
+
+```
+import { HubTwConfig } from "@cgi-learning-hub/theme/config"
+
+const config: Config = {
+  content: [
+    ...
+  ],
+  theme: HubTwConfig,
+  plugins: [...],
+}
+export default config
+```

@@ -20,10 +20,15 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./config": {
+      "import": "./dist/hub-tw-theme.es.js",
+      "require": "./dist/hub-tw-theme.cjs.js"
     }
   },
-  "module": "dist/index.es",
+  "module": "dist/index.es.js",
   "files": [
     "dist"
   ],
