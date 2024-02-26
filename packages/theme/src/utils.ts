@@ -1,8 +1,10 @@
+import { frFR } from "@mui/material/locale";
 import {
   createTheme,
   type Theme,
   type ThemeOptions,
 } from "@mui/material/styles";
+import { frFR as dateFrFR } from "@mui/x-date-pickers/locales";
 import merge from "deepmerge";
 
 export interface TailwindTheme {
@@ -59,55 +61,93 @@ export interface TailwindTheme {
 }
 
 export const muiThemeAdapter = (
-  theme: TailwindTheme,
+  tailwindTheme: TailwindTheme,
   options: Partial<ThemeOptions> = {}
-): Theme =>
-  createTheme(
+): Theme => {
+  const theme = createTheme(
     merge(
       {
         palette: {
           primary: {
-            main: theme.extend.colors.primary.regular,
-            light: theme.extend.colors.primary.light,
-            dark: theme.extend.colors.primary.dark,
+            main: tailwindTheme.extend.colors.primary.regular,
+            light: tailwindTheme.extend.colors.primary.light,
+            dark: tailwindTheme.extend.colors.primary.dark,
           },
           secondary: {
-            main: theme.extend.colors.secondary.regular,
-            light: theme.extend.colors.secondary.light,
-            dark: theme.extend.colors.secondary.dark,
+            main: tailwindTheme.extend.colors.secondary.regular,
+            light: tailwindTheme.extend.colors.secondary.light,
+            dark: tailwindTheme.extend.colors.secondary.dark,
           },
           grey: {
-            main: theme.extend.colors.grey.regular,
-            light: theme.extend.colors.grey.light,
-            dark: theme.extend.colors.grey.dark,
+            main: tailwindTheme.extend.colors.grey.regular,
+            light: tailwindTheme.extend.colors.grey.light,
+            dark: tailwindTheme.extend.colors.grey.dark,
           },
           red: {
-            main: theme.extend.colors.red.regular,
-            light: theme.extend.colors.red.light,
-            dark: theme.extend.colors.red.dark,
+            main: tailwindTheme.extend.colors.red.regular,
+            light: tailwindTheme.extend.colors.red.light,
+            dark: tailwindTheme.extend.colors.red.dark,
           },
           purple: {
-            main: theme.extend.colors.purple.regular,
-            light: theme.extend.colors.purple.light,
-            dark: theme.extend.colors.purple.dark,
+            main: tailwindTheme.extend.colors.purple.regular,
+            light: tailwindTheme.extend.colors.purple.light,
+            dark: tailwindTheme.extend.colors.purple.dark,
           },
           blue: {
-            main: theme.extend.colors.blue.regular,
-            light: theme.extend.colors.blue.light,
-            dark: theme.extend.colors.blue.dark,
+            main: tailwindTheme.extend.colors.blue.regular,
+            light: tailwindTheme.extend.colors.blue.light,
+            dark: tailwindTheme.extend.colors.blue.dark,
           },
           green: {
-            main: theme.extend.colors.green.regular,
-            light: theme.extend.colors.green.light,
-            dark: theme.extend.colors.green.dark,
+            main: tailwindTheme.extend.colors.green.regular,
+            light: tailwindTheme.extend.colors.green.light,
+            dark: tailwindTheme.extend.colors.green.dark,
           },
           yellow: {
-            main: theme.extend.colors.yellow.regular,
-            light: theme.extend.colors.yellow.light,
-            dark: theme.extend.colors.yellow.dark,
+            main: tailwindTheme.extend.colors.yellow.regular,
+            light: tailwindTheme.extend.colors.yellow.light,
+            dark: tailwindTheme.extend.colors.yellow.dark,
           },
         },
+        frFR,
+        dateFrFR,
       },
       options
     )
   );
+
+  return createTheme(theme, {
+    components: {
+      MuiIconButton: {
+        styleOverrides: {
+          root: {
+            color: theme.palette.secondary.main,
+            "&:hover": {
+              color: theme.palette.primary.main,
+            },
+          },
+        },
+      },
+      MuiTab: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+            fontSize: "1rem",
+            color: theme.palette.secondary.main,
+            "&.Mui-selected": {
+              color: theme.palette.secondary.main,
+              fontWeight: 600,
+            },
+          },
+        },
+      },
+      MuiTooltip: {
+        styleOverrides: {
+          tooltip: {
+            backgroundColor: theme.palette.primary.light,
+          },
+        },
+      },
+    },
+  });
+};
