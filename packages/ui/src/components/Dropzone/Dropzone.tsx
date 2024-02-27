@@ -14,6 +14,8 @@ import {
 export interface File extends FileWithPath {}
 
 export interface DropzoneProps extends ReactDropzoneProps {
+  defaultLabel?: string;
+  dragLabel?: string;
   information?: string;
 }
 
@@ -32,29 +34,27 @@ const StyledBox = styled(Box)(({ theme }) => ({
   cursor: "pointer",
 }));
 
-const Dropzone: React.FunctionComponent<DropzoneProps> = (
-  props: DropzoneProps
-) => {
+const Dropzone: React.FunctionComponent<DropzoneProps> = ({
+  defaultLabel = "Glisser et déposer des fichiers ici, ou cliquer pour sélectionner des fichiers",
+  dragLabel = "Déposer les fichiers ici",
+  information,
+  ...otherProps
+}) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: props.onDrop,
+    onDrop: otherProps.onDrop,
   });
-  const { information } = props;
-
   return (
     <StyledBox {...getRootProps()}>
       <input {...getInputProps()} />
       {isDragActive ? (
         <>
           <FileUpload color="primary" />
-          <Typography>Déposer les fichiers ici</Typography>
+          <Typography>{dragLabel}</Typography>
         </>
       ) : (
         <>
           <UploadFile color="primary" />
-          <Typography>
-            Glisser et déposer des fichiers ici, ou cliquer pour sélectionner
-            des fichiers
-          </Typography>
+          <Typography>{defaultLabel}</Typography>
           {information ? (
             <Typography fontSize="0.875rem" color="grey">
               {information}
