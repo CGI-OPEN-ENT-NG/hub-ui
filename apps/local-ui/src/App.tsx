@@ -1,31 +1,33 @@
 import "@cgi-learning-hub/theme";
 import { ThemeProvider } from "@cgi-learning-hub/theme";
 import {
+  AdapterDayjs,
+  DatePicker,
   Dropzone,
   File,
   FileList,
+  IconButton,
+  LocalizationProvider,
+  Menu,
+  MenuItem,
   PrimaryButton,
   SearchInput,
   SecondaryButton,
   Tab,
   TextInput,
+  Tooltip,
+  Typography,
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import { Button, Typography, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import React from "react";
 import "./App.css";
 import { Fingerprint } from "@mui/icons-material";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Tooltip from "@mui/material/Tooltip";
 import "dayjs/locale/fr";
 
 const StyleButton = styled(Button)(({ theme }) => ({

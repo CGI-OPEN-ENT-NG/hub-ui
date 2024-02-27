@@ -8,10 +8,7 @@ import React from "react";
 import {
   useDropzone,
   type DropzoneProps as ReactDropzoneProps,
-  type FileWithPath,
 } from "react-dropzone";
-
-export interface File extends FileWithPath {}
 
 export interface DropzoneProps extends ReactDropzoneProps {
   defaultLabel?: string;
@@ -43,6 +40,7 @@ const Dropzone: React.FunctionComponent<DropzoneProps> = ({
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: otherProps.onDrop,
   });
+
   return (
     <StyledBox {...getRootProps()}>
       <input {...getInputProps()} />

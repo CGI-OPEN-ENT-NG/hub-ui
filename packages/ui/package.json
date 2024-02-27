@@ -38,6 +38,7 @@
     "@mui/icons-material": "5.15.10",
     "@mui/lab": "5.0.0-alpha.165",
     "@mui/material": "5.15.7",
+    "@mui/x-date-pickers": "6.19.4",
     "autoprefixer": "10.4.17",
     "postcss": "8.4.33",
     "react-dropzone": "14.2.3",
