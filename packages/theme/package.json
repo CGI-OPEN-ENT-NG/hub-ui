@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "dev": "postcss ./src/index.css -o ./src/output.css",
-    "build": "postcss ./src/index.css -o ./src/output.css && vite build",
+    "build": "vite build",
     "build:watch": "vite build --watch"
   },
   "devDependencies": {
