@@ -1,5 +1,4 @@
 import { useTheme } from "@mui/material/styles";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import "react";
 import { DefaultButton, DefaultButtonProps } from "../DefaultButton";
 

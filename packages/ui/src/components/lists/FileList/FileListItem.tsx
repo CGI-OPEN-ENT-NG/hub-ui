@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import React from "react";
 
 export interface File {

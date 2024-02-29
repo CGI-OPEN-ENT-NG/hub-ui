@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import "react";
 import FileListItem, { type File } from "./FileListItem";
 

@@ -1,6 +1,5 @@
 import LoadingButton, { type LoadingButtonProps } from "@mui/lab/LoadingButton";
 import { styled, useTheme } from "@mui/material/styles";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import "react";
 import ButtonIcon, { DefaultButtonIconProps } from "./DefaultButtonIcon";
 

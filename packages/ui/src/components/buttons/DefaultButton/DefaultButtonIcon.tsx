@@ -1,6 +1,5 @@
 import type { SvgIconComponent } from "@mui/icons-material";
 import Icon from "@mui/material/Icon";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import "react";
 
 export interface DefaultButtonIconProps {

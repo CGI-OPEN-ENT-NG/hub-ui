@@ -2,7 +2,6 @@ import { Search } from "@mui/icons-material";
 import InputAdornment from "@mui/material/InputAdornment";
 import InputBase, { type InputBaseProps } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import "react";
 
 export interface SearchInputProps extends InputBaseProps {}
