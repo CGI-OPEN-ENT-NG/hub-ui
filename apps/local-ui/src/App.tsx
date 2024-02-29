@@ -1,7 +1,6 @@
 import "@cgi-learning-hub/theme";
 import { ThemeProvider } from "@cgi-learning-hub/theme";
 import {
-  AdapterDayjs,
   DatePicker,
   Dropzone,
   File,
@@ -21,14 +20,12 @@ import {
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import type {} from "@mui/material/themeCssVarsAugmentation";
 import React from "react";
 import "./App.css";
 import { Fingerprint } from "@mui/icons-material";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import "dayjs/locale/fr";
 
 const StyleButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -99,7 +96,7 @@ function App() {
             <MenuItem onClick={handleClose}>My account</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
-          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
+          <LocalizationProvider>
             <DatePicker />
           </LocalizationProvider>
           <TabContext value={value}>
