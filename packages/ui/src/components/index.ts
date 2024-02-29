@@ -1,4 +1,5 @@
 export * from "./Dropzone";
+export * from "./LocalizationProvider";
 export * from "./buttons";
 export * from "./inputs";
 export * from "./lists";
@@ -56,8 +57,6 @@ export * from "@mui/material/Tooltip";
 export { default as Tooltip } from "@mui/material/Tooltip";
 export * from "@mui/material/Typography";
 export { default as Typography } from "@mui/material/Typography";
-export * from "@mui/x-date-pickers/AdapterDayjs";
 export * from "@mui/x-date-pickers/DatePicker";
 export * from "@mui/x-date-pickers/DateTimePicker";
-export * from "@mui/x-date-pickers/LocalizationProvider";
 export * from "@mui/x-date-pickers/TimePicker";
