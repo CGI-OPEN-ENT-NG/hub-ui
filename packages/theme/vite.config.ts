@@ -3,11 +3,12 @@ import { glob } from "glob";
 import { fileURLToPath } from "node:url";
 import { extname, relative, resolve } from "path";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libInjectCss()],
+  plugins: [react(), libInjectCss(), dts({ include: ["src"] })],
   build: {
     copyPublicDir: false,
     lib: {
