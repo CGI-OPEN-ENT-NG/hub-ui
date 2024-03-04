@@ -47,6 +47,9 @@
     "tailwindcss": "3.4.1"
   },
   "peerDependencies": {
-    "@mui/x-date-pickers": "^6.19.4"
+    "@mui/x-date-pickers": "^6.19.4",
+    "@emotion/react": "11.11.3",
+    "@emotion/styled": "11.11.0",
+    "@mui/material": "5.15.10"
   }
 }
