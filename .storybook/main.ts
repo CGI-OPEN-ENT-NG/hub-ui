@@ -9,7 +9,14 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
   ],
   typescript: {
-    reactDocgen: "react-docgen",
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
+      },
+      propFilter: () => true,
+    },
   },
   framework: {
     name: "@storybook/react-vite",
