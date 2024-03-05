@@ -1,8 +1,11 @@
-import TextField, { type TextFieldProps } from "@mui/material/TextField";
-import { styled } from "@mui/material/styles";
 import "react";
 
-export interface TextInputProps extends TextFieldProps<"standard"> { }
+import TextField, { type TextFieldProps } from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
+
+export type InputTextProps = {
+
+} & TextFieldProps
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   "& label.Mui-focused": {
@@ -13,8 +16,8 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const TextInput: React.FunctionComponent<TextInputProps> = (
-  props: TextInputProps
+const TextInput: React.FunctionComponent<InputTextProps> = (
+  props: InputTextProps
 ) => {
   return <StyledTextField {...props} variant={props.variant || "standard"} />;
 };
