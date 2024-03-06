@@ -108,6 +108,26 @@ export const muiThemeAdapter = (
             light: tailwindTheme.extend.colors.yellow.light,
             dark: tailwindTheme.extend.colors.yellow.dark,
           },
+          error: {
+            main: tailwindTheme.extend.colors.red.regular,
+            light: tailwindTheme.extend.colors.red.light,
+            dark: tailwindTheme.extend.colors.red.dark,
+          },
+          warning: {
+            main: tailwindTheme.extend.colors.yellow.regular,
+            light: tailwindTheme.extend.colors.yellow.light,
+            dark: tailwindTheme.extend.colors.yellow.dark,
+          },
+          info: {
+            main: tailwindTheme.extend.colors.blue.regular,
+            light: tailwindTheme.extend.colors.blue.light,
+            dark: tailwindTheme.extend.colors.blue.dark,
+          },
+          success: {
+            main: tailwindTheme.extend.colors.green.regular,
+            light: tailwindTheme.extend.colors.green.light,
+            dark: tailwindTheme.extend.colors.green.dark,
+          }
         },
         frFR,
         dateFrFR,
