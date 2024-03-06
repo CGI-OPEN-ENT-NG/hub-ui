@@ -17,6 +17,7 @@ import {
   Tooltip,
   Typography,
   PasswordInput
+  Alert
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
@@ -118,6 +119,10 @@ function App() {
           <FileList files={files} />
           <PasswordInput value={password} onChange={(e: any) => setPassword(e.target.value)} />
           <div>password: {password}</div>
+          <Alert severity="info">Info alert</Alert>
+          <Alert severity="success">Success alert</Alert>
+          <Alert severity="warning">Warning alert</Alert>
+          <Alert severity="error">Error alert</Alert>
         </header>
       </div>
     </ThemeProvider>
