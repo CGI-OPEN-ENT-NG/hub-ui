@@ -3,7 +3,7 @@ import Dropzone from "./Dropzone";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Dropzone",
+  title: "Components/Inputs/Dropzone",
   component: Dropzone,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
