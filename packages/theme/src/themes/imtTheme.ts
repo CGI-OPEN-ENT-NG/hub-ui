@@ -26,7 +26,7 @@ const tailwindTheme: TailwindTheme = {
         lighter: "#FCFCFC",
       },
       red: {
-        dark: "##9B001B",
+        dark: "#9B001B",
         regular: "#FF002D",
         light: "#FFD9E0",
       },
