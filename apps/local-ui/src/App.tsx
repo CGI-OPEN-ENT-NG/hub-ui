@@ -16,8 +16,9 @@ import {
   TextInput,
   Tooltip,
   Typography,
-  PasswordInput
-  Alert
+  PasswordInput,
+  Alert,
+  Checkbox
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
@@ -117,7 +118,7 @@ function App() {
             information="SVG, PNG, JPG or GIF (max. 3MB)"
           />
           <FileList files={files} />
-          <PasswordInput value={password} onChange={(e: any) => setPassword(e.target.value)} />
+          <PasswordInput label="Password" value={password} onChange={(e: any) => setPassword(e.target.value)} />
           <div>password: {password}</div>
           <Alert severity="info">Info alert</Alert>
           <Alert severity="success">Success alert</Alert>

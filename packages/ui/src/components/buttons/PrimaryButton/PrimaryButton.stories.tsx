@@ -4,7 +4,7 @@ import PrimaryButton from "./PrimaryButton";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Buttons/PrimaryButton",
+  title: "Components/Inputs/PrimaryButton",
   component: PrimaryButton,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).

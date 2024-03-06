@@ -4,7 +4,7 @@ import SecondaryButton from "./SecondaryButton";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Buttons/SecondaryButton",
+  title: "Components/Inputs/SecondaryButton",
   component: SecondaryButton,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
