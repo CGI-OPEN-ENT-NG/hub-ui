@@ -7,7 +7,7 @@ import {
 } from '@mui/material'
 
 type AlertProps = {
-    title: string
+    title?: string
 } & Omit<MUIAlertProps, "variant" | "color">
 
 const StyledAlert = styled(MUIAlert)(({ theme }) => {
