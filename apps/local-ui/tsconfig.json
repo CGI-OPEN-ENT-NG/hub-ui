@@ -1,24 +1,41 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "jsx": "react",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "noFallthroughCasesInSwitch": true,
-      "allowSyntheticDefaultImports": true,
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noEmit": true,
-      "strictNullChecks": true,
-      "baseUrl": ".",
-      "paths": {
-        "@/*": ["src/*"]
-      }
-    },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.json"],
-    "exclude": ["node_modules", "build", "dist"]
-  }
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@cgi-learning-hub/theme": [
+        "../packages/theme"
+      ],
+      "@cgi-learning-hub/ui": [
+        "../packages/ui"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.json"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist"
+  ]
+}

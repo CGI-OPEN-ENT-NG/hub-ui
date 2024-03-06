@@ -16,6 +16,7 @@ import {
   TextInput,
   Tooltip,
   Typography,
+  PasswordInput
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
@@ -45,6 +46,7 @@ const ButtonComponent = ({ onClick }: { onClick: () => void }) => {
 function App() {
   const [isImtThemeActive, setImtThemeActive] = React.useState(false);
   const [value, setValue] = React.useState("1");
+  const [password, setPassword] = React.useState("")
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [files, setFiles] = React.useState<File[]>([]);
   const open = Boolean(anchorEl);
@@ -114,6 +116,8 @@ function App() {
             information="SVG, PNG, JPG or GIF (max. 3MB)"
           />
           <FileList files={files} />
+          <PasswordInput value={password} onChange={(e: any) => setPassword(e.target.value)} />
+          <div>password: {password}</div>
         </header>
       </div>
     </ThemeProvider>
