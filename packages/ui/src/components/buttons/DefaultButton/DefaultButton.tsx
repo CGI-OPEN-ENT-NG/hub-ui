@@ -3,21 +3,12 @@ import { styled, useTheme } from "@mui/material/styles";
 import "react";
 import ButtonIcon, { DefaultButtonIconProps } from "./DefaultButtonIcon";
 
-export interface DefaultButtonProps extends Omit<LoadingButtonProps, "color"> {
-  contentColor?: string;
-  hoverColor?: string;
+export interface DefaultButtonProps extends LoadingButtonProps {
   icon?: DefaultButtonIconProps;
   text?: string;
 }
 
-export interface StyledButtonProps {
-  contentColor: string;
-  hoverColor: string;
-}
-
-const StyledButton = styled(LoadingButton, {
-  shouldForwardProp: (prop) => prop !== "contentColor" && prop !== "hoverColor",
-})<StyledButtonProps>(({ contentColor, hoverColor, theme }) => ({
+const StyledButton = styled(LoadingButton)<DefaultButtonProps>(({ color, theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   columnGap: 8,
@@ -25,16 +16,36 @@ const StyledButton = styled(LoadingButton, {
   paddingLeft: 12,
   paddingRight: 12,
   textTransform: "none",
-  color: contentColor,
-  borderColor: contentColor,
+  color: color,
+  borderColor: color,
   borderRadius: 5,
   borderWidth: 2,
-  "&:hover": {
-    color: theme.palette.common.white,
-    backgroundColor: hoverColor,
-    borderColor: hoverColor,
-    borderWidth: 2,
+  transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+  "&.MuiButton-contained": {
+    color: "#FFFFFF"
   },
+  "&.MuiButton-outlined": {
+    borderRadius: 5,
+    borderWidth: 2,
+    "&.MuiButton-colorPrimary, &.MuiButton-outlinedPrimary": {
+      borderColor: theme.palette.primary.main,
+      color: theme.palette.primary.main,
+      "&:hover": {
+        backgroundColor: theme.palette.primary.dark,
+        borderColor: theme.palette.primary.dark,
+        color: "#FFFFFF"
+      }
+    },
+    "&.MuiButton-colorSecondary, &.MuiButton-outlinedSecondary": {
+      borderColor: theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
+      "&:hover": {
+        backgroundColor: theme.palette.secondary.dark,
+        borderColor: theme.palette.secondary.dark,
+        color: "#FFFFFF"
+      }
+    }
+  }
 }));
 
 const DefaultButton: React.FunctionComponent<DefaultButtonProps> = ({
@@ -42,15 +53,12 @@ const DefaultButton: React.FunctionComponent<DefaultButtonProps> = ({
   text,
   ...otherProps
 }: DefaultButtonProps) => {
-  const theme = useTheme();
-  const contentColor = otherProps.contentColor ?? theme.palette.primary.main;
+  const color = otherProps.color ?? "primary";
 
   return (
     <StyledButton
       {...otherProps}
-      variant="outlined"
-      contentColor={contentColor}
-      hoverColor={otherProps.hoverColor ?? contentColor}
+      color={color}
     >
       {icon?.position === "left" ? <ButtonIcon {...icon} /> : null}
       {text}
