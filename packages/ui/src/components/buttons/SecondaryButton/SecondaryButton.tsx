@@ -1,18 +1,12 @@
-import { useTheme } from "@mui/material/styles";
-import "react";
 import { DefaultButton, DefaultButtonProps } from "../DefaultButton";
 
 export interface SecondaryButtonProps
-  extends Omit<DefaultButtonProps, "color"> {}
+  extends Omit<DefaultButtonProps, "color"> { }
 
 const SecondaryButton: React.FunctionComponent<SecondaryButtonProps> = (
   props: SecondaryButtonProps
-) => {
-  const theme = useTheme();
-
-  return (
-    <DefaultButton contentColor={theme.palette.secondary.main} {...props} />
-  );
-};
+) => (
+  <DefaultButton color="secondary" variant={props.variant ?? "outlined"} {...props} />
+);
 
 export default SecondaryButton;
