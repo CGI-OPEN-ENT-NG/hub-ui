@@ -10,6 +10,12 @@ export * from "@mui/material/CircularProgress";
 export { default as CircularProgress } from "@mui/material/CircularProgress";
 export * from "@mui/material/Dialog";
 export { default as Dialog } from "@mui/material/Dialog";
+export * from "@mui/material/DialogActions";
+export { default as DialogActions } from "@mui/material/DialogActions";
+export * from "@mui/material/DialogContent";
+export { default as DialogContent } from "@mui/material/DialogContent"
+export * from "@mui/material/DialogContentText";
+export { default as DialogContentText } from "@mui/material/DialogContentText"
 export * from "@mui/material/DialogTitle";
 export { default as DialogTitle } from "@mui/material/DialogTitle";
 export * from "@mui/material/FormControl";
