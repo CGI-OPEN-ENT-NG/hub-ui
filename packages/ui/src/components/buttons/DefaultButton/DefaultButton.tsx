@@ -1,5 +1,5 @@
 import LoadingButton, { type LoadingButtonProps } from "@mui/lab/LoadingButton";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import "react";
 import ButtonIcon, { DefaultButtonIconProps } from "./DefaultButtonIcon";
 
@@ -22,27 +22,30 @@ const StyledButton = styled(LoadingButton)<DefaultButtonProps>(({ color, theme }
   borderWidth: 2,
   transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
   "&.MuiButton-contained": {
-    color: "#FFFFFF"
+    color: theme.palette.common.white,
   },
   "&.MuiButton-outlined": {
     borderRadius: 5,
     borderWidth: 2,
-    "&.MuiButton-colorPrimary, &.MuiButton-outlinedPrimary": {
-      borderColor: theme.palette.primary.main,
-      color: theme.palette.primary.main,
+    "&.MuiButton-outlinedPrimary": {
+      "&:active": {
+        borderColor: theme.palette.primary.main,
+        color: theme.palette.primary.main,
+      },
       "&:hover": {
         backgroundColor: theme.palette.primary.dark,
         borderColor: theme.palette.primary.dark,
-        color: "#FFFFFF"
+        color: theme.palette.common.white,
       }
     },
-    "&.MuiButton-colorSecondary, &.MuiButton-outlinedSecondary": {
-      borderColor: theme.palette.secondary.main,
-      color: theme.palette.secondary.main,
+    "&.MuiButton-outlinedSecondary": {
+      "&:active": {
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.main,
+      },
       "&:hover": {
-        backgroundColor: theme.palette.secondary.dark,
-        borderColor: theme.palette.secondary.dark,
-        color: "#FFFFFF"
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.common.white,
       }
     }
   }
