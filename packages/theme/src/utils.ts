@@ -127,7 +127,7 @@ export const muiThemeAdapter = (
             main: tailwindTheme.extend.colors.green.regular,
             light: tailwindTheme.extend.colors.green.light,
             dark: tailwindTheme.extend.colors.green.dark,
-          }
+          },
         },
         frFR,
         dateFrFR,
@@ -158,13 +158,6 @@ export const muiThemeAdapter = (
               color: theme.palette.secondary.main,
               fontWeight: 600,
             },
-          },
-        },
-      },
-      MuiTooltip: {
-        styleOverrides: {
-          tooltip: {
-            backgroundColor: theme.palette.primary.light,
           },
         },
       },
