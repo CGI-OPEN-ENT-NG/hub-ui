@@ -22,6 +22,8 @@ export * from "@mui/material/DialogContentText";
 export { default as DialogContentText } from "@mui/material/DialogContentText";
 export * from "@mui/material/DialogTitle";
 export { default as DialogTitle } from "@mui/material/DialogTitle";
+export * from "@mui/material/Drawer";
+export { default as Drawer } from "@mui/material/Drawer";
 export * from "@mui/material/FormControl";
 export { default as FormControl } from "@mui/material/FormControl";
 export * from "@mui/material/FormHelperText";

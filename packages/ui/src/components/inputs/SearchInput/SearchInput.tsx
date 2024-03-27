@@ -2,7 +2,6 @@ import { Search } from "@mui/icons-material";
 import InputAdornment from "@mui/material/InputAdornment";
 import InputBase, { type InputBaseProps } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
-import "react";
 
 export interface SearchInputProps extends InputBaseProps {}
 
@@ -13,6 +12,11 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
   borderRadius: 30,
   "& .MuiInputBase-input": {
     padding: "8px 0px",
+  },
+  "&:hover, &.Mui-focused": {
+    "& .MuiInputAdornment-root": {
+      color: theme.palette.primary.main,
+    },
   },
 }));
 
@@ -29,6 +33,10 @@ const SearchInput: React.FunctionComponent<SearchInputProps> = ({
           <Search />
         </InputAdornment>
       }
+      type="search"
+      autoComplete="off"
+      autoCorrect="off"
+      spellCheck={false}
     />
   );
 };
