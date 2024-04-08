@@ -13,7 +13,7 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      formats: ["es", "cjs"]
+      formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: [
@@ -38,7 +38,7 @@ export default defineConfig({
       ),
       output: {
         assetFileNames: "assets/[name][extname]",
-        entryFileNames: "[name].[format].js"
+        entryFileNames: "[name].[format].js",
       },
     },
   },
