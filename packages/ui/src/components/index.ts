@@ -11,6 +11,8 @@ export * from "@mui/material/AppBar";
 export { default as AppBar } from "@mui/material/AppBar";
 export * from "@mui/material/Backdrop";
 export { default as Backdrop } from "@mui/material/Backdrop";
+export * from "@mui/material/Box";
+export { default as Box } from "@mui/material/Box";
 export * from "@mui/material/Checkbox";
 export { default as Checkbox } from "@mui/material/Checkbox";
 export * from "@mui/material/CircularProgress";
