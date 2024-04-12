@@ -18,7 +18,10 @@ import {
   Typography,
   PasswordInput,
   Alert,
-  Checkbox
+  Checkbox,
+  AddCircleIcon,
+  CancelIcon,
+  InfoIcon
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
@@ -100,6 +103,11 @@ function App() {
             <MenuItem onClick={handleClose}>My account</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
+          <div>
+            <AddCircleIcon />
+            <CancelIcon />
+            <InfoIcon />
+          </div>
           <LocalizationProvider>
             <DatePicker />
           </LocalizationProvider>
