@@ -13,15 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install PNPM
-        run: npm install -g pnpm
+        run: npm install -g pnpm@8.15.6
       - name: Run install
         run: pnpm install
       - name: Run build
         run: pnpm run build
       - name: Update package version
         run: sh -c ".github/scripts/ci/update_dev_version.sh"
-      - name: Publish  
+      - name: Publish
         run: sh -c ".github/scripts/ci/deploy_artifacts.sh"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
