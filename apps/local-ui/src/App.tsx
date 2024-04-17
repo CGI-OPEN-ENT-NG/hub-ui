@@ -5,6 +5,10 @@ import {
   Dropzone,
   File,
   FileList,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
   IconButton,
   LocalizationProvider,
   Menu,
@@ -21,6 +25,8 @@ import {
   Checkbox,
   AddCircleIcon,
   CancelIcon,
+  CloseIcon,
+  EditIcon,
   InfoIcon
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
@@ -70,6 +76,20 @@ function App() {
     setAnchorEl(null);
   };
 
+  const [checkboxes, setCheck] = React.useState({
+    item1: true,
+    item2: false
+  });
+
+  const handleChangeCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCheck({
+      ...checkboxes,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
+  const { item1, item2 } = checkboxes;
+
   return (
     <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
       <div className="App">
@@ -106,6 +126,8 @@ function App() {
           <div>
             <AddCircleIcon />
             <CancelIcon />
+            <CloseIcon />
+            <EditIcon />
             <InfoIcon />
           </div>
           <LocalizationProvider>
@@ -132,6 +154,14 @@ function App() {
           <Alert severity="success">Success alert</Alert>
           <Alert severity="warning">Warning alert</Alert>
           <Alert severity="error">Error alert</Alert>
+
+          <FormControl component="fieldset" variant="standard" className='flex flex-column'>
+            <FormLabel component="label" sx={{ "&.Mui-focused": { color: "grey" } }}>Checkbox List&#58;</FormLabel>
+            <FormGroup>
+              <FormControlLabel className='ml-0 mr-2' label="Item 1" control={ <Checkbox checked={item1} onChange={handleChangeCheck} name="item1" />} />
+              <FormControlLabel className='ml-0 mr-2' label="Item 2" control={ <Checkbox checked={item2} onChange={handleChangeCheck} name="item2" />} />
+            </FormGroup>
+          </FormControl>
         </header>
       </div>
     </ThemeProvider>

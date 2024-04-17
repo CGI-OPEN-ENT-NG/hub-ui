@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install PNPM
-        run: npm install -g pnpm@8.15.6
+        run: npm install -g pnpm@8.15.7
       - name: Run install
         run: pnpm install
       - name: Run build
