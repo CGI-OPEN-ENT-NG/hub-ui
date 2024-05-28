@@ -12,7 +12,7 @@ const DefaultButtonIcon: React.FunctionComponent<DefaultButtonIconProps> = ({
   Component,
   name,
 }: DefaultButtonIconProps) => {
-  return name ? <Icon>{name}</Icon> : <Component />;
+  return name ? <Icon>{name}</Icon> : (Component ? <Component /> : null);
 };
 
 export default DefaultButtonIcon;
