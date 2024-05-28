@@ -5,8 +5,8 @@ export interface LoaderBackdropProps {}
 
 const LoaderBackdrop: React.FunctionComponent<LoaderBackdropProps> = ({}) => {
   return (
-    <div className="cs-loader">
-      <div className="cs-loader-inner">
+    <div className="cs-loader-backdrop">
+      <div className="cs-loader-backdrop-inner">
         <label>●</label>
         <label>●</label>
         <label>●</label>
