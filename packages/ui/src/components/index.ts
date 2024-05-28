@@ -1,4 +1,5 @@
 export * from "./Dropzone";
+export * from "./Loader";
 export * from "./LoaderBackdrop";
 export * from "./LocalizationProvider";
 export * from "./buttons";
