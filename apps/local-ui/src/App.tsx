@@ -27,7 +27,8 @@ import {
   CancelIcon,
   CloseIcon,
   EditIcon,
-  InfoIcon
+  InfoIcon,
+  MoodleIcon
 } from "@cgi-learning-hub/ui";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
@@ -129,6 +130,7 @@ function App() {
             <CloseIcon />
             <EditIcon />
             <InfoIcon />
+            <MoodleIcon />
           </div>
           <LocalizationProvider>
             <DatePicker />

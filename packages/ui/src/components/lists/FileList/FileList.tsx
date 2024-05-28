@@ -8,8 +8,7 @@ export interface FileListProps<T extends File> {
 }
 
 const FileList = <T extends File>({
-  files = [],
-  ...otherProps
+  files = []
 }: FileListProps<T>) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", rowGap: "0.5rem" }}>
@@ -18,7 +17,6 @@ const FileList = <T extends File>({
           key={index}
           file={file}
           uploading={index % 2 === 0}
-          {...otherProps}
         />
       ))}
     </Box>
