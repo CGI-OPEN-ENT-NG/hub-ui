@@ -1,18 +1,11 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-
 .cs-loader {
-  transform: translateY(-50%);
   color: #00b8de;
-  padding: 0 100px;
+  padding: 0 150px;
   text-align: center;
 }
 
 .cs-loader-inner label {
-  font-size: 20px;
+  font-size: 16px;
   opacity: 0;
   display: inline-block;
 }
@@ -20,7 +13,7 @@ body {
 @keyframes lol {
   0% {
     opacity: 0;
-    transform: translateX(-300px);
+    transform: translateX(-150px);
   }
   33% {
     opacity: 1;
@@ -32,14 +25,14 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translateX(300px);
+    transform: translateX(150px);
   }
 }
 
 @-webkit-keyframes lol {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-300px);
+    -webkit-transform: translateX(-150px);
   }
   33% {
     opacity: 1;
@@ -51,7 +44,7 @@ body {
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(300px);
+    -webkit-transform: translateX(150px);
   }
 }
 

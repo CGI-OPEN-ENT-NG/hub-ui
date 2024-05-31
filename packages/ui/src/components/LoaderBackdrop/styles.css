@@ -28,7 +28,7 @@ body {
   display: inline-block;
 }
 
-@keyframes lol {
+@keyframes lol-backdrop {
   0% {
     opacity: 0;
     transform: translateX(-300px);
@@ -47,7 +47,7 @@ body {
   }
 }
 
-@-webkit-keyframes lol {
+@-webkit-keyframes lol-backdrop {
   0% {
     opacity: 0;
     -webkit-transform: translateX(-300px);
@@ -67,21 +67,21 @@ body {
 }
 
 .cs-loader-backdrop-inner label:nth-child(4) {
-  -webkit-animation: lol 3s 200ms infinite ease-in-out;
-  animation: lol 3s 200ms infinite ease-in-out;
+  -webkit-animation: lol-backdrop 3s 200ms infinite ease-in-out;
+  animation: lol-backdrop 3s 200ms infinite ease-in-out;
 }
 
 .cs-loader-backdrop-inner label:nth-child(3) {
-  -webkit-animation: lol 3s 300ms infinite ease-in-out;
-  animation: lol 3s 300ms infinite ease-in-out;
+  -webkit-animation: lol-backdrop 3s 300ms infinite ease-in-out;
+  animation: lol-backdrop 3s 300ms infinite ease-in-out;
 }
 
 .cs-loader-backdrop-inner label:nth-child(2) {
-  -webkit-animation: lol 3s 400ms infinite ease-in-out;
-  animation: lol 3s 400ms infinite ease-in-out;
+  -webkit-animation: lol-backdrop 3s 400ms infinite ease-in-out;
+  animation: lol-backdrop 3s 400ms infinite ease-in-out;
 }
 
 .cs-loader-backdrop-inner label:nth-child(1) {
-  -webkit-animation: lol 3s 500ms infinite ease-in-out;
-  animation: lol 3s 500ms infinite ease-in-out;
+  -webkit-animation: lol-backdrop 3s 500ms infinite ease-in-out;
+  animation: lol-backdrop 3s 500ms infinite ease-in-out;
 }
