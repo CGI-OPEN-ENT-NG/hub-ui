@@ -1,4 +1,5 @@
 packages:
+  - "./packages/icons"
   - "./packages/theme"
   - "./packages/ui"
   - "./apps/**"

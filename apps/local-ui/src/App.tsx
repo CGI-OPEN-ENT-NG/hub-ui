@@ -27,9 +27,9 @@ import {
   CancelIcon,
   CloseIcon,
   EditIcon,
-  InfoIcon,
-  MoodleIcon
+  InfoIcon
 } from "@cgi-learning-hub/ui";
+import { MoodleIcon } from "@cgi-learning-hub/icons";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";

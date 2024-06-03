@@ -58,6 +58,12 @@ the file `cli.sh` is available for each project in order to run your instance
 ./cli.sh clear install build install runLocalUi # we do a reinstall in order to apply local-ui the updated deps workspace:*
 ```
 
+### CLI shortcut (with docker)
+
+```bash
+./cli.sh install build runDev
+```
+
 ### Publish
 
 #### With docker

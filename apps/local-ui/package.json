@@ -9,6 +9,7 @@
   "dependencies": {
     "@cgi-learning-hub/theme": "workspace:*",
     "@cgi-learning-hub/ui": "workspace:*",
+    "@cgi-learning-hub/icons": "workspace:*",
     "@mui/icons-material": "^5.15.10",
     "@mui/lab": "5.0.0-alpha.165",
     "@mui/material": "^5.15.7",
