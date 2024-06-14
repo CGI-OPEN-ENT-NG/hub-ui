@@ -7,9 +7,9 @@ const tailwindTheme: TailwindTheme = {
       primary: {
         darker: "#004754",
         dark: "#18819D",
-        regular: "#01BBD4",
+        regular: "#00B8DE",
         light: "#D5F7FD",
-        lighter: "#F8FCFC",
+        lighter: "#F3FCFE",
       },
       secondary: {
         darker: "#000919",
