@@ -6,10 +6,12 @@ import { isErrorWithMessage, isFetchBaseQueryError } from "./helpers";
 
 export interface QueryErrorProps {
   error: FetchBaseQueryError | SerializedError | undefined;
+  statusPrefix?: string;
 }
 
 const QueryError: React.FunctionComponent<QueryErrorProps> = ({
   error,
+  statusPrefix = "Erreur ",
 }: QueryErrorProps) => {
   if (isFetchBaseQueryError(error)) {
     const errMsg =
@@ -21,7 +23,7 @@ const QueryError: React.FunctionComponent<QueryErrorProps> = ({
 
     return (
       <Typography>
-        <Typography fontWeight="bold">{`Erreur ${error.status}`}</Typography>
+        <Typography fontWeight="bold">{`${statusPrefix}${error.status}`}</Typography>
         {errMsg}
       </Typography>
     );
