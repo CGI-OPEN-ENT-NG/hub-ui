@@ -6,7 +6,6 @@ export * from "./buttons";
 export * from "./inputs";
 export * from "./lists";
 export * from "./feedback";
-export * from "./Icons/MoodleIcon";
 export * from "@mui/lab/LoadingButton";
 export { default as LoadingButton } from "@mui/lab/LoadingButton";
 export * from "@mui/icons-material/AddCircle";
