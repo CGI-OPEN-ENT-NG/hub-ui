@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface MoodleIconProps {
   size?: string;
   className?: string;

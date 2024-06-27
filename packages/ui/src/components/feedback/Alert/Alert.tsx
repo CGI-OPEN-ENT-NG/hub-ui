@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
     AlertTitle, Alert as MUIAlert,
     AlertProps as MUIAlertProps,

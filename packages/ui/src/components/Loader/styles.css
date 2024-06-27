@@ -1,19 +1,21 @@
 .cs-loader {
-  color: #00b8de;
-  padding: 0 150px;
+  padding: 0 auto;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .cs-loader-inner label {
   font-size: 16px;
   opacity: 0;
   display: inline-block;
+  vertical-align: middle;
 }
 
 @keyframes lol {
   0% {
     opacity: 0;
-    transform: translateX(-150px);
+    transform: translateX(-100px);
   }
   33% {
     opacity: 1;
@@ -25,14 +27,14 @@
   }
   100% {
     opacity: 0;
-    transform: translateX(150px);
+    transform: translateX(100px);
   }
 }
 
 @-webkit-keyframes lol {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-150px);
+    -webkit-transform: translateX(-100px);
   }
   33% {
     opacity: 1;
@@ -44,7 +46,7 @@
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(150px);
+    -webkit-transform: translateX(100px);
   }
 }
 

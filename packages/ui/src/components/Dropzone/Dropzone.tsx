@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import FileUpload from "@mui/icons-material/FileUpload";
 import UploadFile from "@mui/icons-material/UploadFile";
 import { styled } from "@mui/material/styles";
-import React from "react";
 import {
   useDropzone,
   type DropzoneProps as ReactDropzoneProps,
