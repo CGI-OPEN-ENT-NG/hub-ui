@@ -24,7 +24,7 @@ install () {
 }
 
 # run local test ui
-runDev() {
+runLocalUi() {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run start-app-local-ui
 }
 
@@ -53,8 +53,8 @@ publish() {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run publish
 }
 
-# clear projects
-clear () {
+# clean projects
+clean () {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run clean && docker-compose down ; rm -rf .pnpm-store ; docker rmi hub-ui:1.0.0
 }
 
@@ -73,14 +73,14 @@ formatLint() {
 for param in "$@"
 do
   case $param in
-    clear)
-      clear
+    clean)
+      clean
       ;;
     install)
       install
       ;;
-    runDev)
-      runDev
+    runLocalUi)
+      runLocalUi
       ;;
     storybook)
       storybook
@@ -91,8 +91,8 @@ do
     buildUiLibraryWatch)
       buildUiLibraryWatch
       ;;
-    runDev)
-      runDev
+    runLocalUi)
+      runLocalUi
       ;;
     build)
       build

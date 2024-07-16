@@ -2,7 +2,7 @@
 
 This Mono repository is an example of a React library created with TypeScript, Vite, Storybook and PNPM.
 
-## How to Test setup 
+## How to Test setup
 
 - `apps/local-ui` is the local app to try out your libraries and will be run via http://localhost:3000
 - `packages/*` will be your libraries
@@ -21,7 +21,7 @@ pnpm install
 # run your local app dev
 pnpm run start-app-local-ui
 
-# depending in apps/local-ui/vite.config.ts 
+# depending in apps/local-ui/vite.config.ts
 # if you comment "resolve" object part, you need to run build and then (re-)run local app dev
 pnpm run build
 pnpm run start-app-local-ui
@@ -31,7 +31,7 @@ pnpm run build-base-library
 pnpm run build-theme-library
 
 # run total
-pnpm clear; pnpm install; pnpm build; pnpm install; pnpm run start-app-local-ui # we do a reinstall in order to apply local-ui the updated deps workspace:*
+pnpm clean; pnpm install; pnpm build; pnpm install; pnpm run start-app-local-ui # we do a reinstall in order to apply local-ui the updated deps workspace:*
 ```
 
 ### Docker mode
@@ -45,7 +45,7 @@ the file `cli.sh` is available for each project in order to run your instance
 # run your local app dev
 ./cli.sh runLocalUi
 
-# depending in apps/local-ui/vite.config.ts 
+# depending in apps/local-ui/vite.config.ts
 # if you comment "resolve" object part, you need to run build and then (re-)run local app dev
 ./cli.sh build
 ./cli.sh runLocalUi
@@ -55,13 +55,13 @@ the file `cli.sh` is available for each project in order to run your instance
 ./cli.sh buildThemeLibrary
 
 # run total
-./cli.sh clear install build install runLocalUi # we do a reinstall in order to apply local-ui the updated deps workspace:*
+./cli.sh clean install build install runLocalUi # we do a reinstall in order to apply local-ui the updated deps workspace:*
 ```
 
 ### CLI shortcut (with docker)
 
 ```bash
-./cli.sh install build runDev
+./cli.sh install build runLocalUi
 ```
 
 ### Publish
@@ -83,7 +83,6 @@ pnpm run publish
 ### Extra command line
 
 Please check all arguments in `cli.sh` and adapt it with/without docker for running lint/test/format...
-
 
 ## Storybook dev
 
@@ -144,6 +143,7 @@ services:
 ### local run library (ViteJS)
 
 `/hub-ui/packages/base/src/index.ts` correspond au path utilisé dans le volumes docker-compose.yml
+
 ```ts
   const resolve = {
     alias:{
@@ -161,9 +161,10 @@ services:
 ## local library from NextJS app
 
 You need to install these dependencies if you use `ui` package in your NextJS project :
-  - `"@mui/material": "5.15.7"`
-  - `"@emotion/styled": "11.11.0"`
-  - `"@emotion/react": "11.11.3"`
+
+- `"@mui/material": "5.15.7"`
+- `"@emotion/styled": "11.11.0"`
+- `"@emotion/react": "11.11.3"`
 
 You will need to add `"@cgi-learning-hub/ui` in devDependencies and add in docker-compose.yml your local project mount volumes
 
@@ -194,6 +195,7 @@ From this library repository, run `pnpm run build:watch` from any libs you would
 And from the another repository (NextJS), `next dev` and anytime you make any change from this repository, ViteJS will upgrade again your dist during its build-time but you will need to re-install your local library package
 
 TLDR :
+
 - (From repository library) : `pnpm run build:watch`
 - (From NextJS repository) : `pnpm run install`
 - (From NextJS repository) : `next dev` => run your local but can be make earlier
@@ -202,7 +204,7 @@ TLDR :
 
 ## Unit test
 
-For any projects that use Jest you must add : 
+For any projects that use Jest you must add :
 
 ```js
 # jest.setup.tsx

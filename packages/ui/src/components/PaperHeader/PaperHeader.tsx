@@ -17,6 +17,7 @@ const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
   iconColor,
   iconProps,
   iconSize = 28,
+  component = "h3",
   variant = "h2",
   fontWeight = "bold",
   ...otherProps
@@ -35,7 +36,12 @@ const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
           {...iconProps}
         />
       ) : null}
-      <Typography variant={variant} fontWeight={fontWeight} {...otherProps}>
+      <Typography
+        component={component}
+        variant={variant}
+        fontWeight={fontWeight}
+        {...otherProps}
+      >
         {title}
       </Typography>
     </Stack>
