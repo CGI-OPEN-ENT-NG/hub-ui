@@ -34,24 +34,26 @@
     "build": "vite build",
     "build:watch": "vite build --watch"
   },
+  "dependencies": {
+    "@emotion/react": "11.11.4",
+    "@emotion/styled": "11.11.5",
+    "@mui/icons-material": "5.16.4",
+    "@mui/lab": "5.0.0-alpha.172",
+    "@mui/x-date-pickers": "7.10.0",
+    "dayjs": "1.11.11",
+    "react-dropzone": "14.2.3"
+  },
   "devDependencies": {
-    "@reduxjs/toolkit": "^2.2.5",
+    "@reduxjs/toolkit": "2.2.6",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.19",
-    "postcss": "8.4.38",
-    "tailwindcss": "3.4.3"
+    "postcss": "8.4.39",
+    "tailwindcss": "3.4.6"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.10",
-    "@mui/lab": "^5.0.0-alpha.165",
-    "@mui/material": "^5.15.10",
-    "@mui/x-date-pickers": "^6.19.4",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "dayjs": "^1.11.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.3"
+    "@mui/material": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
