@@ -1,33 +1,17 @@
-import Box from "@mui/material/Box";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import FileUpload from "@mui/icons-material/FileUpload";
-import UploadFile from "@mui/icons-material/UploadFile";
-import { styled } from "@mui/material/styles";
 import {
   useDropzone,
   type DropzoneProps as ReactDropzoneProps,
 } from "react-dropzone";
 
-export interface DropzoneProps extends ReactDropzoneProps {
+export type DropzoneProps = {
   defaultLabel?: string;
   dragLabel?: string;
   information?: string;
-}
-
-const StyledBox = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "0.5rem",
-  padding: "0.5rem",
-  width: "20rem",
-  height: "10rem",
-  border: "1px dashed",
-  borderColor: theme.palette.grey[500],
-  borderRadius: 4,
-  cursor: "pointer",
-}));
+} & ReactDropzoneProps;
 
 const Dropzone: React.FunctionComponent<DropzoneProps> = ({
   defaultLabel = "Glisser et déposer des fichiers ici, ou cliquer pour sélectionner des fichiers",
@@ -35,21 +19,33 @@ const Dropzone: React.FunctionComponent<DropzoneProps> = ({
   information,
   ...otherProps
 }) => {
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: otherProps.onDrop,
-  });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone(otherProps);
 
   return (
-    <StyledBox {...getRootProps()}>
+    <Stack
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      spacing={1}
+      width="18rem"
+      padding={1}
+      border="1px dashed"
+      borderColor="grey.main"
+      borderRadius={1}
+      sx={{
+        cursor: "pointer",
+      }}
+      {...getRootProps()}
+    >
       <input {...getInputProps()} />
       {isDragActive ? (
         <>
-          <FileUpload color="primary" />
+          <FileUploadIcon color="primary" />
           <Typography>{dragLabel}</Typography>
         </>
       ) : (
         <>
-          <UploadFile color="primary" />
+          <UploadFileIcon color="primary" />
           <Typography>{defaultLabel}</Typography>
           {information ? (
             <Typography fontSize="0.875rem" color="grey">
@@ -58,7 +54,7 @@ const Dropzone: React.FunctionComponent<DropzoneProps> = ({
           ) : null}
         </>
       )}
-    </StyledBox>
+    </Stack>
   );
 };
 

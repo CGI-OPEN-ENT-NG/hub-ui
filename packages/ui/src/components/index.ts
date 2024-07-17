@@ -87,6 +87,7 @@ export * from "@mui/material/Snackbar";
 export { default as Snackbar } from "@mui/material/Snackbar";
 export * from "@mui/material/Stack";
 export { default as Stack } from "@mui/material/Stack";
+export * from "@mui/material/styles";
 export * from "@mui/material/Tab";
 export { default as Tab } from "@mui/material/Tab";
 export * from "@mui/material/Table";
