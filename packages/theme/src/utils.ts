@@ -161,6 +161,13 @@ export const muiThemeAdapter = (
           },
         },
       },
+      MuiTooltip: {
+        styleOverrides: {
+          tooltip: {
+            fontSize: "0.875rem",
+          },
+        },
+      },
     },
   });
 };
