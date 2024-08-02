@@ -1,2 +1,2 @@
-export * from "./defaultTheme";
-export * from "./imtTheme";
+export * from "./default";
+export * from "./imt";
