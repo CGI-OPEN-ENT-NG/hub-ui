@@ -53,7 +53,23 @@ const theme: Theme = {
   },
 };
 
-const muiCssVarsTheme = getMuiCssVarsTheme(theme);
+const muiCssVarsTheme = getMuiCssVarsTheme(theme, {
+  colorSchemes: {
+    light: {
+      palette: {
+        text: {
+          primary: theme.palette.secondary.regular,
+        },
+        background: {
+          default: theme.palette.primary.light,
+        },
+      },
+    },
+  },
+  typography: {
+    fontFamily: "Helvetica",
+  },
+});
 
 const tailwindThemeConfig = getTailwindThemeConfig(theme);
 
