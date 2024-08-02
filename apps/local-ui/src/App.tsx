@@ -1,8 +1,15 @@
+import { MoodleIcon } from "@cgi-learning-hub/icons";
 import "@cgi-learning-hub/theme";
-import { ThemeProvider } from "@cgi-learning-hub/theme";
+import { CssVarsProvider } from "@cgi-learning-hub/theme";
 import {
+  AddCircleIcon,
+  Alert,
+  CancelIcon,
+  Checkbox,
+  CloseIcon,
   DatePicker,
   Dropzone,
+  EditIcon,
   File,
   FileList,
   FormControl,
@@ -10,9 +17,10 @@ import {
   FormGroup,
   FormLabel,
   IconButton,
-  LocalizationProvider,
+  InfoIcon,
   Menu,
   MenuItem,
+  PasswordInput,
   PrimaryButton,
   SearchInput,
   SecondaryButton,
@@ -20,30 +28,22 @@ import {
   TextInput,
   Tooltip,
   Typography,
-  PasswordInput,
-  Alert,
-  Checkbox,
-  AddCircleIcon,
-  CancelIcon,
-  CloseIcon,
-  EditIcon,
-  InfoIcon
 } from "@cgi-learning-hub/ui";
-import { MoodleIcon } from "@cgi-learning-hub/icons";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import { Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import React from "react";
-import "./App.css";
 import { Fingerprint } from "@mui/icons-material";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import { Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import type {} from "@mui/material/themeCssVarsAugmentation";
+import React from "react";
+import "./App.css";
 
 const StyleButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.vars.palette.primary.main,
   "&:hover": {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.vars.palette.primary.main,
   },
 }));
 
@@ -58,7 +58,7 @@ const ButtonComponent = ({ onClick }: { onClick: () => void }) => {
 function App() {
   const [isImtThemeActive, setImtThemeActive] = React.useState(false);
   const [value, setValue] = React.useState("1");
-  const [password, setPassword] = React.useState("")
+  const [password, setPassword] = React.useState("");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [files, setFiles] = React.useState<File[]>([]);
   const open = Boolean(anchorEl);
@@ -79,7 +79,7 @@ function App() {
 
   const [checkboxes, setCheck] = React.useState({
     item1: true,
-    item2: false
+    item2: false,
   });
 
   const handleChangeCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,7 +92,7 @@ function App() {
   const { item1, item2 } = checkboxes;
 
   return (
-    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
+    <CssVarsProvider themeId={isImtThemeActive ? "imt" : "default"}>
       <div className="App">
         <header className="App-header">
           <ButtonComponent onClick={changeTheme} />
@@ -132,9 +132,7 @@ function App() {
             <InfoIcon />
             <MoodleIcon />
           </div>
-          <LocalizationProvider>
-            <DatePicker />
-          </LocalizationProvider>
+          <DatePicker />
           <TabContext value={value}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
               <Tab label="Item One" value="1" />
@@ -150,23 +148,56 @@ function App() {
             information="SVG, PNG, JPG or GIF (max. 3MB)"
           />
           <FileList files={files} />
-          <PasswordInput label="Password" value={password} onChange={(e: any) => setPassword(e.target.value)} />
+          <PasswordInput
+            label="Password"
+            value={password}
+            onChange={(e: any) => setPassword(e.target.value)}
+          />
           <div>password: {password}</div>
           <Alert severity="info">Info alert</Alert>
           <Alert severity="success">Success alert</Alert>
           <Alert severity="warning">Warning alert</Alert>
           <Alert severity="error">Error alert</Alert>
 
-          <FormControl component="fieldset" variant="standard" className='flex flex-column'>
-            <FormLabel component="label" sx={{ "&.Mui-focused": { color: "grey" } }}>Checkbox List&#58;</FormLabel>
+          <FormControl
+            component="fieldset"
+            variant="standard"
+            className="flex flex-column"
+          >
+            <FormLabel
+              component="label"
+              sx={{ "&.Mui-focused": { color: "grey" } }}
+            >
+              Checkbox List&#58;
+            </FormLabel>
             <FormGroup>
-              <FormControlLabel className='ml-0 mr-2' label="Item 1" control={ <Checkbox checked={item1} onChange={handleChangeCheck} name="item1" />} />
-              <FormControlLabel className='ml-0 mr-2' label="Item 2" control={ <Checkbox checked={item2} onChange={handleChangeCheck} name="item2" />} />
+              <FormControlLabel
+                className="ml-0 mr-2"
+                label="Item 1"
+                control={
+                  <Checkbox
+                    checked={item1}
+                    onChange={handleChangeCheck}
+                    name="item1"
+                  />
+                }
+              />
+              <FormControlLabel
+                className="ml-0 mr-2"
+                label="Item 2"
+                control={
+                  <Checkbox
+                    checked={item2}
+                    onChange={handleChangeCheck}
+                    name="item2"
+                  />
+                }
+              />
             </FormGroup>
           </FormControl>
         </header>
       </div>
-    </ThemeProvider>
+    </CssVarsProvider>
   );
 }
 
