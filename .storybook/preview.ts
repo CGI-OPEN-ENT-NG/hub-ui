@@ -1,23 +1,30 @@
-// .storybook/preview.tsx
+// .storybook/preview.ts
+import {
+  CssBaseline,
+  Experimental_CssVarsProvider as CssVarsProvider,
+} from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
-import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import { defaultMuiTheme, imtMuiTheme } from "../packages/theme/src/themes";
+import {
+  defaultMuiCssVarsTheme,
+  imtMuiCssVarsTheme,
+} from "../packages/theme/src/themes";
 
 // Load Roboto fonts
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import '@fontsource/material-icons';
+import "@fontsource/material-icons";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 export const decorators = [
   withThemeFromJSXProvider({
-  themes: {
-    default: defaultMuiTheme,
-    imt: imtMuiTheme,
-  },
-  defaultTheme: 'default',
-  Provider: ThemeProvider,
-  GlobalStyles: CssBaseline,
-})];
+    themes: {
+      default: defaultMuiCssVarsTheme,
+      imt: imtMuiCssVarsTheme,
+    },
+    defaultTheme: "default",
+    Provider: CssVarsProvider,
+    GlobalStyles: CssBaseline,
+  }),
+];
