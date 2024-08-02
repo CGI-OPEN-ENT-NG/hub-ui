@@ -3,7 +3,7 @@
   "version": "1.1.0-dev",
   "private": false,
   "author": "CGI Learning-hub Team",
-  "description": "@cgi-learning-hub/theme is a theme implemented with tailwindcss",
+  "description": "@cgi-learning-hub/theme is a theme compatible with tailwind and mui",
   "keywords": [
     "cgi-learning-hub",
     "tailwind",
@@ -34,22 +34,15 @@
     "dist"
   ],
   "scripts": {
-    "dev": "postcss ./src/index.css -o ./src/output.css",
     "build": "vite build",
     "build:watch": "vite build --watch"
   },
   "dependencies": {
+    "@mui/material": "^5.0.0",
     "@mui/x-date-pickers": "^7.0.0",
     "deepmerge": "4.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/line-clamp": "0.4.4",
-    "autoprefixer": "10.4.19",
-    "postcss": "8.4.39",
-    "postcss-cli": "11.0.0",
-    "tailwindcss": "3.4.6"
-  },
-  "peerDependencies": {
-    "@mui/material": "^5.0.0"
+    "tailwindcss": "3.4.7"
   }
 }
