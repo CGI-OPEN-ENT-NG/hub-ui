@@ -1,6 +1,6 @@
 import { MoodleIcon } from "@cgi-learning-hub/icons";
 import "@cgi-learning-hub/theme";
-import { CssVarsProvider } from "@cgi-learning-hub/theme";
+import { ThemeProvider } from "@cgi-learning-hub/theme";
 import {
   AddCircleIcon,
   Alert,
@@ -39,6 +39,7 @@ import { styled } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import React from "react";
 import "./App.css";
+import ExampleComponent from "./components/ExampleComponent";
 
 const StyleButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.vars.palette.primary.main,
@@ -92,7 +93,7 @@ function App() {
   const { item1, item2 } = checkboxes;
 
   return (
-    <CssVarsProvider themeId={isImtThemeActive ? "imt" : "default"}>
+    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
       <div className="App">
         <header className="App-header">
           <ButtonComponent onClick={changeTheme} />
@@ -102,6 +103,10 @@ function App() {
           />
           <SecondaryButton text="Bouton secondaire" />
           <TextInput label="TextInput" placeholder="test" />
+          <ExampleComponent
+            primaryText="Example component"
+            secondaryText="Secondaire"
+          />
           <SearchInput />
           <Tooltip title="Tooltip">
             <Typography variant="h2" component="h2">
@@ -197,7 +202,7 @@ function App() {
           </FormControl>
         </header>
       </div>
-    </CssVarsProvider>
+    </ThemeProvider>
   );
 }
 
