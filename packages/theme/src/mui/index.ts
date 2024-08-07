@@ -15,6 +15,7 @@ export const getMuiCssVarsTheme = (
   extendTheme(
     merge(
       {
+        cssVarPrefix: "theme",
         colorSchemes: {
           light: {
             palette: {
