@@ -1,0 +1,4 @@
+/* example.css */
+.secondary-text {
+  color: var(--theme-palette-secondary-main);
+}
