@@ -1,2 +1,2 @@
-export * from "./mui/CssVarsProvider";
+export * from "./ThemeProvider";
 export * from "./themes";
