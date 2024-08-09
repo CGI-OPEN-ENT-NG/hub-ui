@@ -113,6 +113,7 @@ export * from "./Alert";
 export * from "./DatePicker";
 export * from "./DefaultButton";
 export * from "./Dropzone";
+export * from "./EmptyState";
 export * from "./FileList";
 export * from "./Loader";
 export * from "./LoaderBackdrop";
