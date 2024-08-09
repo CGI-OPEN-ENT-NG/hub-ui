@@ -6,6 +6,7 @@ import {
   Checkbox,
   DatePicker,
   Dropzone,
+  EmptyState,
   File,
   FileList,
   FormControl,
@@ -104,6 +105,11 @@ function App() {
           <ExampleComponent
             primaryText="Example component"
             secondaryText="Secondaire"
+          />
+          <EmptyState
+            svgName="client-error"
+            title="Une erreur est survenue"
+            description="Si l'erreur persiste, contacter un administrateur"
           />
           <SearchInput />
           <Tooltip title="Tooltip">
