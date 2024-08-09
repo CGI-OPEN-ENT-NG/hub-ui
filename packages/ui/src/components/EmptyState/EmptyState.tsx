@@ -24,7 +24,7 @@ const EmptyState: React.FunctionComponent<EmptyStateProps> = ({
 
   return Svg ? (
     <Stack direction="column" alignItems="center" margin="auto" {...otherProps}>
-      <div style={{ width: 300, maxHeight: 300 }}>
+      <div style={{ width: 200, maxHeight: 200 }}>
         <Svg
           width="100%"
           height="100%"
