@@ -1,7 +1,7 @@
-import Typography from "@mui/material/Typography";
 import type { SerializedError } from "@reduxjs/toolkit";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
+import { EmptyState } from "../EmptyState";
 import { isErrorWithMessage, isFetchBaseQueryError } from "./helpers";
 
 export interface QueryErrorProps {
@@ -21,19 +21,46 @@ const QueryError: React.FunctionComponent<QueryErrorProps> = ({
           ? JSON.stringify(error.data)
           : null;
 
+    if (
+      typeof error.status === "number" &&
+      error.status.toString().startsWith("4")
+    ) {
+      return (
+        <EmptyState
+          svgName="client-error"
+          title={`Erreur client (${error.status})`}
+          description={errMsg ?? undefined}
+        />
+      );
+    } else if (
+      typeof error.status === "number" &&
+      error.status.toString().startsWith("5")
+    ) {
+      return (
+        <EmptyState
+          svgName="server-error"
+          title={`Erreur serveur (${error.status})`}
+          description={errMsg ?? undefined}
+        />
+      );
+    }
     return (
-      <Typography>
-        <Typography fontWeight="bold">{`${statusPrefix}${error.status}`}</Typography>
-        {errMsg}
-      </Typography>
+      <EmptyState
+        svgName="error"
+        title={`${statusPrefix}${error.status}`}
+        description={errMsg ?? undefined}
+      />
     );
   }
 
-  if (isErrorWithMessage(error)) {
-    return <Typography>{error.message}</Typography>;
-  }
-
-  return <Typography>Une erreur est survenue.</Typography>;
+  return (
+    <EmptyState
+      svgName="error"
+      title={
+        isErrorWithMessage(error) ? error.message : "Une erreur est survenue"
+      }
+    />
+  );
 };
 
 export default QueryError;
