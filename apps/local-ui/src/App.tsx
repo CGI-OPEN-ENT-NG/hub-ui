@@ -31,7 +31,7 @@ import {
 import { MoodleIcon } from "@cgi-learning-hub/icons";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
-import { createTheme, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import "./App.css";
 import { Fingerprint } from "@mui/icons-material";
