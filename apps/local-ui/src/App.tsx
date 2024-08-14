@@ -10,7 +10,6 @@ import {
   FormGroup,
   FormLabel,
   IconButton,
-  LocalizationProvider,
   Menu,
   MenuItem,
   PrimaryButton,
@@ -32,13 +31,14 @@ import {
 import { MoodleIcon } from "@cgi-learning-hub/icons";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { createTheme, styled } from "@mui/material/styles";
 import React from "react";
 import "./App.css";
 import { Fingerprint } from "@mui/icons-material";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import { LocalizationProvider } from "@mui/x-date-pickers";
 
 const StyleButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -90,9 +90,9 @@ function App() {
   };
 
   const { item1, item2 } = checkboxes;
-
+  const theme = null;
   return (
-    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
+    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"} custom={theme}>
       <div className="App">
         <header className="App-header">
           <ButtonComponent onClick={changeTheme} />
