@@ -9,7 +9,7 @@ interface ThemeProviderProps extends PropsWithChildren {
 
 const THEMES = {
   default: defaultMuiTheme,
-  imt: imtMuiTheme
+  imt: imtMuiTheme,
 };
 
 const CustomThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
