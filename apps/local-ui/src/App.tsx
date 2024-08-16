@@ -93,7 +93,7 @@ function App() {
   const { item1, item2 } = checkboxes;
 
   return (
-    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
+    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"} custom={undefined}>
       <div className="App">
         <header className="App-header">
           <ButtonComponent onClick={changeTheme} />

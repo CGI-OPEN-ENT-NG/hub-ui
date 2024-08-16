@@ -1,9 +1,10 @@
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
+import { Experimental_CssVarsProvider as CssVarsProvider, CssVarsTheme } from "@mui/material/styles";
 import { PropsWithChildren } from "react";
 import { defaultMuiCssVarsTheme, imtMuiCssVarsTheme } from "./themes";
 
 export type ThemeProviderProps = PropsWithChildren & {
   themeId: "default" | "imt";
+  custom: CssVarsTheme | undefined;
 };
 
 const THEMES = {
@@ -13,9 +14,10 @@ const THEMES = {
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   themeId,
+  custom,
   children,
 }) => {
-  const theme = THEMES[themeId] ?? THEMES.default;
+  const theme = (custom !== null) ? custom : ( THEMES[themeId] ?? THEMES.default);
 
   return (
     <CssVarsProvider theme={theme} defaultMode="light">
