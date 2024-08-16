@@ -17,7 +17,7 @@ export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   custom,
   children,
 }) => {
-  const theme = (custom !== null) ? custom : ( THEMES[themeId] ?? THEMES.default);
+  const theme = (custom !== undefined) ? custom : ( THEMES[themeId] ?? THEMES.default);
 
   return (
     <CssVarsProvider theme={theme} defaultMode="light">
