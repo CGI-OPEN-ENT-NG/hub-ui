@@ -1,4 +1,4 @@
-import { Experimental_CssVarsProvider as CssVarsProvider, CssVarsTheme } from "@mui/material/styles";
+import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
 import { PropsWithChildren } from "react";
 import { defaultMuiCssVarsTheme, imtMuiCssVarsTheme } from "./themes";
 import { getMuiCssVarsTheme } from "./mui";
