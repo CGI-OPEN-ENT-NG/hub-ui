@@ -44,7 +44,6 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
   };
 
   const handleItemSelect = (item: UsersAndGroups) => {
-    console.log(item);
     onUserSelectionChange([...selectedUsers, item]);
     setIsListOpen(false);
     setSearch("");
