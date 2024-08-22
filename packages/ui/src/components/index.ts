@@ -125,3 +125,4 @@ export * from "./Loader";
 export * from "./LoaderBackdrop";
 export * from "./PaperHeader";
 export * from "./pickers";
+export * from "./UserSelectionSection";

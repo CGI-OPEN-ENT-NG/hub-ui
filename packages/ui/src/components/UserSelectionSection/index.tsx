@@ -1,10 +1,10 @@
-import { Box, Button, TextInput, Typography } from "@cgi-learning-hub/ui";
-import { Chip, Collapse, List, ListItemButton, ListItemText, Paper } from "@mui/material";
+import { Box, Button, Chip, Collapse, List, ListItemButton, ListItemText, Paper, Typography } from "@mui/material";
 import { ChangeEvent, forwardRef, useEffect, useImperativeHandle, useState } from "react";
 
 import { ChipBox, paperStyle, seeMoreButtonStyle, wrapperBoxStyle } from "./style";
-import { UserSelectionSectionComponent, UserSelectionSectionProps, UserSelectionSectionRef,UsersAndGroups } from "./types";
+import { UserSelectionSectionComponent, UserSelectionSectionProps, UserSelectionSectionRef,Users } from "./types";
 import { defaultTranslations } from "./utils";
+import { TextInput } from "../inputs";
 
 export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
   UserSelectionSectionRef,
@@ -12,7 +12,7 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
 >(({ users, selectedUsers, onUserSelectionChange, minSearchLength = 1,  translations = defaultTranslations ,chipVariantStyle ="filled"}, ref) => {
   const [search, setSearch] = useState<string>("");
   const [isListOpen, setIsListOpen] = useState<boolean>(false);
-  const [filteredUsers, setFilteredUsers] = useState<UsersAndGroups[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<Users[]>([]);
   const [isScrollable, setIsScrollable] = useState<boolean>(false);
  
   const displaySeeMore = selectedUsers.length > 8;
@@ -24,7 +24,7 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
 
   useEffect(() => {
     const lowercaseSearch = search.toLowerCase();
-    const filtered = users.reduce((acc: UsersAndGroups[], user) => {
+    const filtered = users.reduce((acc: Users[], user) => {
       if (
         acc.length < 5 &&
         user.label.toLowerCase().includes(lowercaseSearch) &&
@@ -43,13 +43,13 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
     if (!isListOpen) setIsListOpen(true);
   };
 
-  const handleItemSelect = (item: UsersAndGroups) => {
+  const handleItemSelect = (item: Users) => {
     onUserSelectionChange([...selectedUsers, item]);
     setIsListOpen(false);
     setSearch("");
   };
 
-  const handleItemRemove = (item: UsersAndGroups) => {
+  const handleItemRemove = (item: Users) => {
     onUserSelectionChange(selectedUsers.filter(selectedItem => selectedItem.id !== item.id));
   };
 

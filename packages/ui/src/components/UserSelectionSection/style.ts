@@ -3,7 +3,7 @@ import { styled } from "@mui/material";
 
 import { ChipBoxProps } from "./types";
 
-export const wrapperBoxStyle = { width: "50%", display: "flex", flexDirection: "column", gap: ".3rem" ,padding:"10px",alignItems: "center"};
+export const wrapperBoxStyle = { width: "100%", display: "flex", flexDirection: "column", gap: ".3rem" ,padding:"1rem",alignItems: "center"};
 
 
  

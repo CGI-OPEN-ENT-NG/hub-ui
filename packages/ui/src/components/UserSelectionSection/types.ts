@@ -10,9 +10,9 @@ export interface UserSelectionSectionTranslations {
 }
 
 export interface UserSelectionSectionProps {
-  users: UsersAndGroups[];
-  selectedUsers: UsersAndGroups[];
-  onUserSelectionChange: (newSelectedUsers: UsersAndGroups[]) => void;
+  users: Users[];
+  selectedUsers: Users[];
+  onUserSelectionChange: (newSelectedUsers: Users[]) => void;
   minSearchLength?: number;
   translations?: UserSelectionSectionTranslations;
   chipVariantStyle?: "outlined" | "filled";
@@ -32,8 +32,12 @@ export type UserSelectionSectionComponent = ForwardRefExoticComponent<
 >;
 
 export type BasicValueType = string | number | boolean | null | undefined;
-export interface UsersAndGroups {
+export interface Users {
   id: string | number;
   label: string;
   [key: string]: BasicValueType | BasicValueType[] | Record<string, BasicValueType>;
+}
+
+export interface InputValueState {
+  users: Users[];
 }
