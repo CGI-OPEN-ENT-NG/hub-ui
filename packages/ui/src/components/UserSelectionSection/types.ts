@@ -16,7 +16,6 @@ export interface UserSelectionSectionProps {
   onUserSelectionChange: (newSelectedUsers: User[]) => void;
   minSearchLength?: number;
   translations?: UserSelectionSectionTranslations;
-  chipVariantStyle?: "outlined" | "filled";
   chipProps?: ChipProps
 }
 
