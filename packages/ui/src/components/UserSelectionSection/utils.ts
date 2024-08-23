@@ -1,5 +1,7 @@
 import { InputValueState } from "./types";
-
+export const initialInputValue: InputValueState = {
+    users: []
+  };
 const TITILE = "Users selection";
 const SEARCH_PlACEHOLDER = "Search by first name, last name, class, or group";
 const NO_RESULT =  "No result";
@@ -14,6 +16,3 @@ export const defaultTranslations = {
     expandButton: EXPAND_BUTTON,
 } 
 
-export const initialInputValue: InputValueState = {
-    users: []
-  };

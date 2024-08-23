@@ -1,3 +1,4 @@
+import { ChipProps } from "@mui/material";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 
@@ -10,12 +11,13 @@ export interface UserSelectionSectionTranslations {
 }
 
 export interface UserSelectionSectionProps {
-  users: Users[];
-  selectedUsers: Users[];
-  onUserSelectionChange: (newSelectedUsers: Users[]) => void;
+  users: User[];
+  selectedUsers: User[];
+  onUserSelectionChange: (newSelectedUsers: User[]) => void;
   minSearchLength?: number;
   translations?: UserSelectionSectionTranslations;
   chipVariantStyle?: "outlined" | "filled";
+  chipProps?: ChipProps
 }
 
 export interface ChipBoxProps {
@@ -32,12 +34,12 @@ export type UserSelectionSectionComponent = ForwardRefExoticComponent<
 >;
 
 export type BasicValueType = string | number | boolean | null | undefined;
-export interface Users {
+export interface User {
   id: string | number;
   label: string;
   [key: string]: BasicValueType | BasicValueType[] | Record<string, BasicValueType>;
 }
 
 export interface InputValueState {
-  users: Users[];
+  users: User[];
 }

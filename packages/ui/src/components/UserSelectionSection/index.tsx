@@ -2,20 +2,21 @@ import { Box, Button, Chip, Collapse, List, ListItemButton, ListItemText, Paper,
 import { ChangeEvent, forwardRef, useEffect, useImperativeHandle, useState } from "react";
 
 import { ChipBox, paperStyle, seeMoreButtonStyle, wrapperBoxStyle } from "./style";
-import { UserSelectionSectionComponent, UserSelectionSectionProps, UserSelectionSectionRef,Users } from "./types";
+import { UserSelectionSectionComponent, UserSelectionSectionProps, UserSelectionSectionRef,User } from "./types";
 import { defaultTranslations } from "./utils";
 import { TextInput } from "../inputs";
 
 export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
   UserSelectionSectionRef,
   UserSelectionSectionProps
->(({ users, selectedUsers, onUserSelectionChange, minSearchLength = 1,  translations = defaultTranslations ,chipVariantStyle ="filled"}, ref) => {
+>(({ users, selectedUsers, onUserSelectionChange, minSearchLength = 1,  translations = defaultTranslations ,chipVariantStyle ="filled",chipProps}, ref) => {
   const [search, setSearch] = useState<string>("");
   const [isListOpen, setIsListOpen] = useState<boolean>(false);
-  const [filteredUsers, setFilteredUsers] = useState<Users[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [isScrollable, setIsScrollable] = useState<boolean>(false);
- 
-  const displaySeeMore = selectedUsers.length > 8;
+  const initialVisibleCount  = 8;
+  const [visibleCount, setVisibleCount] = useState(initialVisibleCount);
+  const displaySeeMore = selectedUsers.length > initialVisibleCount;
   const chipBoxEmpty = selectedUsers.length === 0;
 
   useImperativeHandle(ref, () => ({
@@ -24,7 +25,7 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
 
   useEffect(() => {
     const lowercaseSearch = search.toLowerCase();
-    const filtered = users.reduce((acc: Users[], user) => {
+    const filtered = users.reduce((acc: User[], user) => {
       if (
         acc.length < 5 &&
         user.label.toLowerCase().includes(lowercaseSearch) &&
@@ -41,22 +42,32 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
     const { value } = event.target;
     setSearch(value);
     if (!isListOpen) setIsListOpen(true);
+   
   };
 
-  const handleItemSelect = (item: Users) => {
+  const handleItemSelect = (item: User) => {
     onUserSelectionChange([...selectedUsers, item]);
     setIsListOpen(false);
     setSearch("");
   };
 
-  const handleItemRemove = (item: Users) => {
+  const handleItemRemove = (item: User) => {
     onUserSelectionChange(selectedUsers.filter(selectedItem => selectedItem.id !== item.id));
   };
 
-  const handleIsScrollable = () => setIsScrollable(true);
+  const handleIsScrollable = () => {
+    setIsScrollable(!isScrollable);
+    setVisibleCount(isScrollable ? initialVisibleCount : selectedUsers.length);
+  }
+
+  useEffect(() => {
+    if (!displaySeeMore) setIsScrollable(false);  
+      setVisibleCount(isScrollable ? selectedUsers.length :initialVisibleCount );
+  }, [filteredUsers]);
+
 
   return (
-    <Box sx={wrapperBoxStyle}>
+      <Box sx={wrapperBoxStyle}>
       <Typography variant="h2">{translations.title}</Typography>
       <Box sx={{ width: "100%", position: "relative", maxWidth:"100%" }}>
         <TextInput
@@ -88,24 +99,25 @@ export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
         {chipBoxEmpty ? (
           <Typography variant="body1">{translations.emptySelection}</Typography>
         ) : (
-          selectedUsers.map(item => ( 
+          selectedUsers.slice(0, visibleCount).map(item  => (
             <Chip
-              color="primary"
-              variant= {chipVariantStyle}
               key={item.id}
               label={item.label}
               onDelete={() => handleItemRemove(item)}
               sx={{ maxWidth: "20%", justifyContent:"space-betweeen" }}
-              
+              {...chipProps}
             />
           ))
         )}
-      </ChipBox>
-      <Collapse in={displaySeeMore && !isScrollable} collapsedSize={0}>
-        <Button sx={seeMoreButtonStyle} data-testid="see-more" onClick={handleIsScrollable}>
-          {translations.expandButton}
-        </Button>
-      </Collapse>
+      </ChipBox> 
+      {selectedUsers.length > initialVisibleCount && (
+        <Collapse in={displaySeeMore  && !isScrollable} collapsedSize={0}>
+          <Button sx={seeMoreButtonStyle} data-testid="see-more" onClick={handleIsScrollable}>
+            {translations.expandButton}
+          </Button>      
+        </Collapse>
+      )}
+      
     </Box>
   );
 });
