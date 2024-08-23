@@ -13,7 +13,8 @@
     "publish": "pnpm publish -r --access public",
     "publish:dev": "pnpm publish -r --access public --tag develop",
     "start-app-local-ui": "cd apps/local-ui && pnpm run dev",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@fontsource/material-icons": "5.0.18",
