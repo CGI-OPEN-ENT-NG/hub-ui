@@ -9,7 +9,7 @@ import { TextInput } from "../inputs";
 export const UserSelectionSection: UserSelectionSectionComponent = forwardRef<
   UserSelectionSectionRef,
   UserSelectionSectionProps
->(({ users, selectedUsers, onUserSelectionChange, minSearchLength = 1,  translations = defaultTranslations ,chipVariantStyle ="filled",chipProps}, ref) => {
+>(({ users, selectedUsers, onUserSelectionChange, minSearchLength = 1,  translations = defaultTranslations ,chipProps}, ref) => {
   const [search, setSearch] = useState<string>("");
   const [isListOpen, setIsListOpen] = useState<boolean>(false);
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
