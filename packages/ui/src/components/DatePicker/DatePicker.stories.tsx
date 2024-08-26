@@ -1,20 +1,20 @@
 import { Meta, StoryFn } from "@storybook/react";
-import SearchInput from "./SearchInput";
+import DatePicker from "./DatePicker";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Inputs/SearchInput",
-  component: SearchInput,
+  title: "Components/DatePicker",
+  component: DatePicker,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
   },
 };
 
-const Template: StoryFn<any> = (args) => <SearchInput {...args} />;
+const Template: StoryFn<any> = (args) => <DatePicker {...args} />;
 
 export const Default: any = Template.bind({});
 Default.args = {
-  placeholder: "Rechercher",
+  adapterLocale: "fr",
 };
 
 export default stories;

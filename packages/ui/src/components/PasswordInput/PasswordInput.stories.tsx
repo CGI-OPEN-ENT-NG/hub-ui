@@ -3,7 +3,7 @@ import PasswordInput from './PasswordInput'
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-    title: "Components/Inputs/PasswordInput",
+    title: "Components/PasswordInput",
     component: PasswordInput,
     argTypes: {
         // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).

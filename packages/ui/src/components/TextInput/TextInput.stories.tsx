@@ -3,7 +3,7 @@ import TextInput from "./TextInput";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Inputs/TextInput",
+  title: "Components/TextInput",
   component: TextInput,
   argTypes: {
     variant: {

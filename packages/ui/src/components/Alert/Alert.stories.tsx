@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import Alert from "./Alert";
 
 const stories: Meta<StoryFn<any>> = {
-    title: "Components/Feedback/Alert",
+    title: "Components/Alert",
     component: Alert,
     argTypes: {
         // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).

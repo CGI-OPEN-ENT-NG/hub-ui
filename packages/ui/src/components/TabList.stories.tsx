@@ -6,7 +6,7 @@ import { Meta, StoryFn } from "@storybook/react";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Data Display/TabList",
+  title: "Components/TabList",
   component: TabList,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).

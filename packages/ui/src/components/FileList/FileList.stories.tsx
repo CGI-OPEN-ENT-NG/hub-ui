@@ -3,7 +3,7 @@ import FileList from "./FileList";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Data Display/FileList",
+  title: "Components/FileList",
   component: FileList,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
