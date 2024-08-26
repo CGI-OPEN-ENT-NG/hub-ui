@@ -72,3 +72,4 @@ pnpm-lock.yaml
 .pnpm-store
 apps/local-ui/node_modules
 packages/theme/src/output.css
+storybook-static/
