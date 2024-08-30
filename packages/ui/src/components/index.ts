@@ -14,6 +14,8 @@ export * from "@mui/material/CardHeader";
 export { default as CardHeader } from "@mui/material/CardHeader";
 export * from "@mui/material/Checkbox";
 export { default as Checkbox } from "@mui/material/Checkbox";
+export * from "@mui/material/Chip";
+export { default as Chip } from "@mui/material/Chip";
 export * from "@mui/material/CircularProgress";
 export { default as CircularProgress } from "@mui/material/CircularProgress";
 export * from "@mui/material/colors";
