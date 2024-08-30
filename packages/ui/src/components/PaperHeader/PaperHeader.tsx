@@ -1,6 +1,6 @@
 import { SvgIconComponent } from "@mui/icons-material";
 import { Color, SvgIconProps } from "@mui/material";
-import Stack from "@mui/material/Stack";
+import Stack, { StackProps } from "@mui/material/Stack";
 import Typography, { TypographyProps } from "@mui/material/Typography";
 
 export type PaperHeaderProps = {
@@ -9,7 +9,8 @@ export type PaperHeaderProps = {
   iconColor?: Color;
   iconProps?: SvgIconProps;
   iconSize?: number;
-} & TypographyProps;
+  titleProps?: TypographyProps;
+} & StackProps;
 
 const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
   title,
@@ -17,13 +18,11 @@ const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
   iconColor,
   iconProps,
   iconSize = 28,
-  component = "h3",
-  variant = "h2",
-  fontWeight = "bold",
+  titleProps,
   ...otherProps
 }) => {
   return (
-    <Stack direction="row" alignItems="center" gap={1}>
+    <Stack direction="row" alignItems="center" gap={1} {...otherProps}>
       {IconComponent ? (
         <IconComponent
           sx={{
@@ -37,10 +36,10 @@ const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
         />
       ) : null}
       <Typography
-        component={component}
-        variant={variant}
-        fontWeight={fontWeight}
-        {...otherProps}
+        component={titleProps?.component ?? "h3"}
+        variant={titleProps?.variant ?? "h2"}
+        fontWeight={titleProps?.fontWeight ?? 400}
+        {...titleProps}
       >
         {title}
       </Typography>
