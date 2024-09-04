@@ -19,7 +19,7 @@
   "devDependencies": {
     "@fontsource/material-icons": "5.0.18",
     "@fontsource/roboto": "5.0.13",
-    "@mui/material": "^5.0.0",
+    "@mui/material": "^6",
     "@storybook/addon-a11y": "8.2.4",
     "@storybook/addon-essentials": "8.2.4",
     "@storybook/addon-interactions": "8.2.4",

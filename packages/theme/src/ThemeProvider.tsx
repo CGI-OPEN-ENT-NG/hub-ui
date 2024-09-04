@@ -1,7 +1,7 @@
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { PropsWithChildren } from "react";
-import { defaultMuiCssVarsTheme, imtMuiCssVarsTheme } from "./themes";
-import { getMuiCssVarsTheme } from "./mui";
+import { getMuiTheme } from "./mui";
+import { defaultMuiTheme, imtMuiTheme } from "./themes";
 import { Theme } from "./types/theme";
 
 export type ThemeProviderProps = PropsWithChildren & {
@@ -10,8 +10,8 @@ export type ThemeProviderProps = PropsWithChildren & {
 };
 
 const THEMES = {
-  default: defaultMuiCssVarsTheme,
-  imt: imtMuiCssVarsTheme,
+  default: defaultMuiTheme,
+  imt: imtMuiTheme,
 };
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
@@ -19,11 +19,10 @@ export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   customTheme,
   children,
 }) => {
-  const theme = (customTheme !== undefined) ? getMuiCssVarsTheme(customTheme)  : ( THEMES[themeId] ?? THEMES.default);
+  const theme =
+    customTheme !== undefined
+      ? getMuiTheme(customTheme)
+      : (THEMES[themeId] ?? THEMES.default);
 
-  return (
-    <CssVarsProvider theme={theme} defaultMode="light">
-      {children}
-    </CssVarsProvider>
-  );
+  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
 };

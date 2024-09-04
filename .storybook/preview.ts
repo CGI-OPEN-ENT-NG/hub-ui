@@ -5,10 +5,7 @@ import {
 } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 
-import {
-  defaultMuiCssVarsTheme,
-  imtMuiCssVarsTheme,
-} from "../packages/theme/src/themes";
+import { defaultMuiTheme, imtMuiTheme } from "../packages/theme/src/themes";
 
 // Load Roboto fonts
 import "@fontsource/material-icons";
@@ -20,8 +17,8 @@ import "@fontsource/roboto/700.css";
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {
-      default: defaultMuiCssVarsTheme,
-      imt: imtMuiCssVarsTheme,
+      default: defaultMuiTheme,
+      imt: imtMuiTheme,
     },
     defaultTheme: "default",
     Provider: CssVarsProvider,

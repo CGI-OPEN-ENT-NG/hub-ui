@@ -2,14 +2,10 @@ import { MoodleIcon } from "@cgi-learning-hub/icons";
 import "@cgi-learning-hub/theme";
 import { ThemeProvider } from "@cgi-learning-hub/theme";
 import {
-  AddCircleIcon,
   Alert,
-  CancelIcon,
   Checkbox,
-  CloseIcon,
   DatePicker,
   Dropzone,
-  EditIcon,
   File,
   FileList,
   FormControl,
@@ -17,7 +13,6 @@ import {
   FormGroup,
   FormLabel,
   IconButton,
-  InfoIcon,
   Menu,
   MenuItem,
   PasswordInput,
@@ -93,7 +88,10 @@ function App() {
   const { item1, item2 } = checkboxes;
 
   return (
-    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"} customTheme={undefined}>
+    <ThemeProvider
+      themeId={isImtThemeActive ? "imt" : "default"}
+      customTheme={undefined}
+    >
       <div className="App">
         <header className="App-header">
           <ButtonComponent onClick={changeTheme} />
@@ -130,11 +128,6 @@ function App() {
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
           <div>
-            <AddCircleIcon />
-            <CancelIcon />
-            <CloseIcon />
-            <EditIcon />
-            <InfoIcon />
             <MoodleIcon />
           </div>
           <DatePicker />

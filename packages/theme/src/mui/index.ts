@@ -1,21 +1,23 @@
 import { frFR } from "@mui/material/locale";
 import {
-  CssVarsTheme,
+  createTheme,
   CssVarsThemeOptions,
-  experimental_extendTheme as extendTheme,
+  Theme as MuiTheme,
 } from "@mui/material/styles";
 import { frFR as dateFrFR } from "@mui/x-date-pickers/locales";
 import merge from "deepmerge";
 import { Theme } from "../types";
 
-export const getMuiCssVarsTheme = (
+export const getMuiTheme = (
   theme: Theme,
   options: Partial<CssVarsThemeOptions> = {}
-): CssVarsTheme =>
-  extendTheme(
+): MuiTheme =>
+  createTheme(
     merge(
       {
-        cssVarPrefix: "theme",
+        cssVariables: {
+          cssVarPrefix: "theme",
+        },
         colorSchemes: {
           light: {
             palette: {

@@ -1,4 +1,4 @@
-import { getMuiCssVarsTheme } from "../mui";
+import { getMuiTheme } from "../mui";
 import { getTailwindThemeConfig } from "../tailwind";
 import { Theme } from "../types";
 
@@ -53,12 +53,12 @@ const theme: Theme = {
   },
 };
 
-const muiCssVarsTheme = getMuiCssVarsTheme(theme);
+const muiTheme = getMuiTheme(theme);
 
 const tailwindThemeConfig = getTailwindThemeConfig(theme);
 
 export {
-  muiCssVarsTheme as defaultMuiCssVarsTheme,
+  muiTheme as defaultMuiTheme,
   tailwindThemeConfig as defaultTailwindThemeConfig,
   theme as defaultTheme,
 };

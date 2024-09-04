@@ -1,4 +1,4 @@
-import { getMuiCssVarsTheme } from "../mui";
+import { getMuiTheme } from "../mui";
 import { getTailwindThemeConfig } from "../tailwind";
 import { Theme } from "../types";
 
@@ -53,7 +53,7 @@ const theme: Theme = {
   },
 };
 
-const muiCssVarsTheme = getMuiCssVarsTheme(theme, {
+const muiTheme = getMuiTheme(theme, {
   colorSchemes: {
     light: {
       palette: {
@@ -74,7 +74,7 @@ const muiCssVarsTheme = getMuiCssVarsTheme(theme, {
 const tailwindThemeConfig = getTailwindThemeConfig(theme);
 
 export {
-  muiCssVarsTheme as imtMuiCssVarsTheme,
+  muiTheme as imtMuiTheme,
   tailwindThemeConfig as imtTailwindThemeConfig,
   theme as imtTheme,
 };
