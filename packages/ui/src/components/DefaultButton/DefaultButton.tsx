@@ -12,10 +12,7 @@ const StyledButton = styled(LoadingButton)<DefaultButtonProps>(
   ({ color, theme }) => ({
     justifyContent: "center",
     alignItems: "center",
-    columnGap: 8,
     minHeight: 38,
-    paddingLeft: 12,
-    paddingRight: 12,
     textTransform: "none",
     color: color,
     borderColor: color,
@@ -71,10 +68,17 @@ const DefaultButton: React.FunctionComponent<DefaultButtonProps> = ({
   const color = otherProps.color ?? "primary";
 
   return (
-    <StyledButton {...otherProps} color={color}>
-      {icon?.position === "left" ? <ButtonIcon {...icon} /> : null}
+    <StyledButton
+      {...otherProps}
+      color={color}
+      startIcon={
+        icon?.position === "left" ? <ButtonIcon {...icon} /> : undefined
+      }
+      endIcon={
+        icon?.position === "right" ? <ButtonIcon {...icon} /> : undefined
+      }
+    >
       {text}
-      {icon?.position === "right" ? <ButtonIcon {...icon} /> : null}
     </StyledButton>
   );
 };
