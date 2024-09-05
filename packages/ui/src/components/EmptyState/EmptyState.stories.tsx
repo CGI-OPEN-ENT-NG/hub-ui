@@ -3,7 +3,7 @@ import EmptyState from "./EmptyState";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/Feedback/EmptyState",
+  title: "Components/EmptyState",
   component: EmptyState,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
