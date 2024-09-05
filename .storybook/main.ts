@@ -1,7 +1,22 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import svgr from "vite-plugin-svgr";
 
 const config: StorybookConfig = {
-  stories: ["../packages/**/src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../packages/icons/src/**/*.mdx",
+    "../packages/icons/src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/ui/assets/*.mdx",
+    "../packages/ui/assets/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/ui/src/**/*.mdx",
+    "../packages/ui/src/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
+  async viteFinal(config) {
+    const { mergeConfig } = await import("vite");
+
+    return mergeConfig(config, {
+      plugins: [svgr()],
+    });
+  },
   addons: [
     "@storybook/addon-a11y",
     "@storybook/addon-links",
