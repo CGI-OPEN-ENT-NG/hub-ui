@@ -3,8 +3,8 @@ import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import React from "react";
 
 export interface File {
   name: string;
@@ -28,19 +28,19 @@ const FileListItem = <T extends File>({
   const deleteAction = () => onDelete?.(file);
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", columnGap: "1rem" }}>
+    <Stack direction="row" alignItems="center" spacing={2}>
       <InsertDriveFileIcon color="primary" />
-      <div className="text-start w-full">
+      <Box sx={{ width: "100%" }}>
         <Typography>{file.name}</Typography>
         <Typography fontSize="0.875rem" color="grey">
           {sizeStr}
         </Typography>
-      </div>
+      </Box>
       <IconButton onClick={deleteAction} disabled={uploading}>
         {uploading ? <CircularProgress size={24} /> : <Delete />}
       </IconButton>
-    </Box>
+    </Stack>
   );
 };
 
-export default React.memo(FileListItem);
+export default FileListItem;
