@@ -60,9 +60,6 @@ const muiTheme = getMuiTheme(theme, {
         text: {
           primary: theme.palette.secondary.regular,
         },
-        background: {
-          default: theme.palette.primary.light,
-        },
       },
     },
   },
