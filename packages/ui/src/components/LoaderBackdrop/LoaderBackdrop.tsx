@@ -1,3 +1,4 @@
+import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import "./styles.css";
 
@@ -5,14 +6,14 @@ export interface LoaderBackdropProps {}
 
 const LoaderBackdrop: React.FunctionComponent<LoaderBackdropProps> = ({}) => {
   return (
-    <Box className="cs-loader-backdrop" color="primary.main">
-      <Box className="cs-loader-backdrop-inner">
+    <Backdrop open sx={{ bgcolor: "background.default" }}>
+      <Box className="cs-loader-backdrop-inner" color="primary.main">
         <label>●</label>
         <label>●</label>
         <label>●</label>
         <label>●</label>
       </Box>
-    </Box>
+    </Backdrop>
   );
 };
 

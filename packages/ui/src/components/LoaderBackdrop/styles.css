@@ -1,17 +1,4 @@
-.cs-loader-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
 .cs-loader-backdrop-inner {
-  transform: translateY(-50%);
-  top: 50%;
-  position: absolute;
-  width: 100%;
-  padding: 0 100px;
   text-align: center;
 }
 
