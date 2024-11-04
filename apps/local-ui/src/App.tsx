@@ -9,7 +9,6 @@ import {
   File,
   FileList,
   IconButton,
-  LoaderBackdrop,
   Menu,
   MenuItem,
   PasswordInput,
@@ -88,7 +87,6 @@ function App() {
             primaryText="Example component"
             secondaryText="Secondaire"
           />
-          <LoaderBackdrop />
           <EmptyState
             svgName="client-error"
             title="Une erreur est survenue"

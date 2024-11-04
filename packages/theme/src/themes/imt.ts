@@ -53,7 +53,7 @@ const theme: Theme = {
   },
 };
 
-const muiTheme = getMuiTheme(theme, {
+const muiOptions = {
   colorSchemes: {
     light: {
       palette: {
@@ -66,11 +66,14 @@ const muiTheme = getMuiTheme(theme, {
   typography: {
     fontFamily: "Helvetica",
   },
-});
+};
+
+const muiTheme = getMuiTheme(theme, muiOptions);
 
 const tailwindThemeConfig = getTailwindThemeConfig(theme);
 
 export {
+  muiOptions as imtMuiOptions,
   muiTheme as imtMuiTheme,
   tailwindThemeConfig as imtTailwindThemeConfig,
   theme as imtTheme,

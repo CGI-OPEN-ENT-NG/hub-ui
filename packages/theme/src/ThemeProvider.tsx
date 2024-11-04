@@ -1,28 +1,53 @@
-import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
+import {
+  CssVarsThemeOptions,
+  ThemeProvider as MuiThemeProvider,
+} from "@mui/material";
+import merge from "deepmerge";
 import { PropsWithChildren } from "react";
 import { getMuiTheme } from "./mui";
-import { defaultMuiTheme, imtMuiTheme } from "./themes";
+import { defaultTheme, imtMuiOptions, imtTheme } from "./themes";
 import { Theme } from "./types/theme";
 
-export type ThemeProviderProps = PropsWithChildren & {
-  themeId: "default" | "imt";
-  customTheme?: Theme;
+const expandTheme = (
+  id: ThemeProviderProps["themeId"],
+  options?: ThemeProviderProps["options"]
+) => {
+  switch (id) {
+    case "imt":
+      return getMuiTheme(
+        imtTheme,
+        options ? merge(imtMuiOptions, options) : imtMuiOptions
+      );
+    case "default":
+    default:
+      return getMuiTheme(defaultTheme, options);
+  }
 };
 
-const THEMES = {
-  default: defaultMuiTheme,
-  imt: imtMuiTheme,
-};
+export type ThemeProviderProps = PropsWithChildren<
+  {
+    options?: Partial<CssVarsThemeOptions>;
+  } & (
+    | {
+        themeId: "default" | "imt";
+        customTheme?: never;
+      }
+    | {
+        themeId?: never;
+        customTheme: Theme;
+      }
+  )
+>;
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
-  themeId,
-  customTheme,
   children,
+  customTheme,
+  options,
+  themeId,
 }) => {
-  const theme =
-    customTheme !== undefined
-      ? getMuiTheme(customTheme)
-      : (THEMES[themeId] ?? THEMES.default);
+  const theme = themeId
+    ? expandTheme(themeId, options)
+    : getMuiTheme(customTheme, options);
 
   return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
 };
