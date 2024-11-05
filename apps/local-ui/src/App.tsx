@@ -1,8 +1,8 @@
 import { MoodleIcon } from "@cgi-learning-hub/icons";
-import "@cgi-learning-hub/theme";
 import { ThemeProvider } from "@cgi-learning-hub/theme";
 import {
   Alert,
+  Button,
   DatePicker,
   Dropzone,
   EmptyState,
@@ -12,9 +12,8 @@ import {
   Menu,
   MenuItem,
   PasswordInput,
-  PrimaryButton,
   SearchInput,
-  SecondaryButton,
+  StandardButton,
   Tab,
   TextInput,
   Tooltip,
@@ -25,14 +24,13 @@ import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation";
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import ExampleComponent from "./components/ExampleComponent";
 
-const StyleButton = styled(Button)(({ theme }) => ({
+const StyleButton = styled(StandardButton)(({ theme }) => ({
   backgroundColor: theme.vars.palette.primary.main,
   "&:hover": {
     backgroundColor: theme.vars.palette.primary.main,
@@ -48,11 +46,11 @@ const ButtonComponent = ({ onClick }: { onClick: () => void }) => {
 };
 
 function App() {
-  const [isImtThemeActive, setImtThemeActive] = React.useState(false);
-  const [value, setValue] = React.useState("1");
-  const [password, setPassword] = React.useState("");
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [files, setFiles] = React.useState<File[]>([]);
+  const [isImtThemeActive, setImtThemeActive] = useState(false);
+  const [value, setValue] = useState("1");
+  const [password, setPassword] = useState("");
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const open = Boolean(anchorEl);
 
   const changeTheme = () => setImtThemeActive((old) => !old);
@@ -70,18 +68,20 @@ function App() {
   };
 
   return (
-    <ThemeProvider
-      themeId={isImtThemeActive ? "imt" : "default"}
-      customTheme={undefined}
-    >
+    <ThemeProvider themeId={isImtThemeActive ? "imt" : "default"}>
       <div className="App">
         <header className="App-header">
           <ButtonComponent onClick={changeTheme} />
-          <PrimaryButton
-            text="Bouton primaire"
-            icon={{ Component: AccessAlarmIcon, position: "left" }}
-          />
-          <SecondaryButton text="Bouton secondaire" />
+          <Button
+            variant="outlined"
+            color="primary"
+            startIcon={<AccessAlarmIcon />}
+          >
+            Bouton couleur primaire
+          </Button>
+          <Button variant="text" color="secondary">
+            Bouton couleur secondaire
+          </Button>
           <TextInput label="TextInput" placeholder="test" />
           <ExampleComponent
             primaryText="Example component"
