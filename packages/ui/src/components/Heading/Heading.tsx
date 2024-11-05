@@ -3,7 +3,7 @@ import { Color, SvgIconProps } from "@mui/material";
 import Stack, { StackProps } from "@mui/material/Stack";
 import Typography, { TypographyProps } from "@mui/material/Typography";
 
-export type PaperHeaderProps = {
+export type HeadingProps = {
   title: string;
   IconComponent?: SvgIconComponent;
   iconColor?: Color;
@@ -12,7 +12,7 @@ export type PaperHeaderProps = {
   titleProps?: TypographyProps;
 } & StackProps;
 
-const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
+const Heading: React.FunctionComponent<HeadingProps> = ({
   title,
   IconComponent,
   iconColor,
@@ -47,4 +47,4 @@ const PaperHeader: React.FunctionComponent<PaperHeaderProps> = ({
   );
 };
 
-export default PaperHeader;
+export default Heading;

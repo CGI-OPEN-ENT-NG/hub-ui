@@ -1,18 +1,18 @@
 import MoodIcon from "@mui/icons-material/Mood";
 import { red } from "@mui/material/colors";
 import { Meta, StoryFn } from "@storybook/react";
-import PaperHeader from "./PaperHeader";
+import Heading from "./Heading";
 
 // Définissez le type de l'objet default
 const stories: Meta<StoryFn<any>> = {
-  title: "Components/PaperHeader",
-  component: PaperHeader,
+  title: "Components/Heading",
+  component: Heading,
   argTypes: {
     // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
   },
 };
 
-const Template: StoryFn<any> = (args) => <PaperHeader {...args} />;
+const Template: StoryFn<any> = (args) => <Heading {...args} />;
 
 export const Default: any = Template.bind({});
 Default.args = {
