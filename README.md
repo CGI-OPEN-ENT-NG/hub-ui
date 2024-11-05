@@ -27,8 +27,9 @@ pnpm run build
 pnpm run start-app-local-ui
 
 # build specific package (your choices)
-pnpm run build-base-library
+pnpm run build-icons-library
 pnpm run build-theme-library
+pnpm run build-ui-library
 
 # run total
 pnpm clean; pnpm install; pnpm build; pnpm install; pnpm run start-app-local-ui # we do a reinstall in order to apply local-ui the updated deps workspace:*
@@ -51,8 +52,9 @@ the file `cli.sh` is available for each project in order to run your instance
 ./cli.sh runLocalUi
 
 # build specific package (your choices)
-./cli.sh buildBaseLibrary
+./cli.sh buildIconsLibrary
 ./cli.sh buildThemeLibrary
+./cli.sh buildUiLibrary
 
 # run total
 ./cli.sh clean install build install runLocalUi # we do a reinstall in order to apply local-ui the updated deps workspace:*
@@ -109,12 +111,14 @@ If you use `file:` mode, you will need to build your library local and in your m
 
 ```bash
 # run build watch mode
+./cli.sh buildIconsLibraryWatch
 ./cli.sh buildThemeLibraryWatch
-./cli.sh buildBaseLibraryWatch
+./cli.sh buildUiLibraryWatch
 
 # same instruction without docker
-pnpm run build-base-library-watch
+pnpm run build-icons-library-watch
 pnpm run build-theme-library-watch
+pnpm run build-ui-library-watch
 
 ```
 
@@ -142,7 +146,7 @@ services:
 
 ### local run library (ViteJS)
 
-`/hub-ui/packages/base/src/index.ts` correspond au path utilisé dans le volumes docker-compose.yml
+`/hub-ui/packages/ui/src/index.ts` correspond au path utilisé dans le volumes docker-compose.yml
 
 ```ts
   const resolve = {
@@ -162,9 +166,9 @@ services:
 
 You need to install these dependencies if you use `ui` package in your NextJS project :
 
-- `"@mui/material": "5.15.7"`
-- `"@emotion/styled": "11.11.0"`
-- `"@emotion/react": "11.11.3"`
+- `"@emotion/react": "^11"`
+- `"@emotion/styled": "^11"`
+- `"@mui/material": "^6"`
 
 You will need to add `"@cgi-learning-hub/ui` in devDependencies and add in docker-compose.yml your local project mount volumes
 
@@ -221,14 +225,16 @@ jest.mock('@emotion/styled', () => {
 From your tailwind.config.ts if you wish to use our theme :
 
 ```
-import { HubTwConfig } from "@cgi-learning-hub/theme/config"
+import { defaultTailwindThemeConfig } from "@cgi-learning-hub/theme"
 
-const config: Config = {
+export default {
   content: [
     ...
   ],
-  theme: HubTwConfig,
+  corePlugins: {
+    preflight: false,
+  },
   plugins: [...],
-}
-export default config
+  theme: defaultTailwindThemeConfig,
+} satisfies Config;
 ```

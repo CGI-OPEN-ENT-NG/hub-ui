@@ -18,7 +18,11 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
-        "react/jsx-runtime"
+        "react/jsx-runtime",
+        "@emotion/react",
+        "@emotion/styled",
+        "@mui/material",
+        "@mui/styled-engine-sc",
       ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input

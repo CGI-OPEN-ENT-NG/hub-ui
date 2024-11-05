@@ -38,11 +38,15 @@
     "build:watch": "vite build --watch"
   },
   "dependencies": {
-    "@mui/material": "^6",
     "@mui/x-date-pickers": "^7",
     "deepmerge": "4.3.1"
   },
   "devDependencies": {
-    "tailwindcss": "3.4.10"
+    "tailwindcss": "3.4.14"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@mui/material": "^6"
   }
 }

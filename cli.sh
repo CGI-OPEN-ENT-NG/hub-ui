@@ -33,12 +33,32 @@ storybook() {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run storybook
 }
 
-# build base library
+# build icons library
+buildIconsLibrary() {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run build-icons-library
+}
+
+# build icons library watch mode
+buildIconsLibraryWatch() {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run build-icons-library-watch
+}
+
+# build theme library
+buildThemeLibrary() {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run build-theme-library
+}
+
+# build theme library watch mode
+buildThemeLibraryWatch() {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run build-theme-library-watch
+}
+
+# build ui library
 buildUiLibrary() {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run build-ui-library
 }
 
-# build base library watch mode
+# build ui library watch mode
 buildUiLibraryWatch() {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run build-ui-library-watch
 }
@@ -84,6 +104,18 @@ do
       ;;
     storybook)
       storybook
+      ;;
+    buildIconsLibrary)
+      buildIconsLibrary
+      ;;
+    buildIconsLibraryWatch)
+      buildIconsLibraryWatch
+      ;;
+    buildThemeLibrary)
+      buildThemeLibrary
+      ;;
+    buildThemeLibraryWatch)
+      buildThemeLibraryWatch
       ;;
     buildUiLibrary)
       buildUiLibrary

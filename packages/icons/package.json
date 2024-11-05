@@ -35,10 +35,12 @@
     "build:watch": "vite build --watch"
   },
   "devDependencies": {
-    "@types/react": "18.3.5",
+    "@types/react": "18.3.12",
     "@types/react-dom": "18.3.0"
   },
   "peerDependencies": {
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@mui/material": "^6",
     "react": "^18",
     "react-dom": "^18"
