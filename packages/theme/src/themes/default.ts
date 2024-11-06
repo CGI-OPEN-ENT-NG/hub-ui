@@ -5,18 +5,18 @@ import { Theme } from "../types";
 const theme: Theme = {
   palette: {
     primary: {
-      darker: "#650A21",
-      dark: "#991F3D",
-      regular: "#E31937",
-      light: "#FFCDD2",
-      lighter: "#FFF2F3",
-    },
-    secondary: {
       darker: "#200A58",
       dark: "#5236AB",
       regular: "#6E3FED",
       light: "#BFB5F9",
       lighter: "#E6E3F3",
+    },
+    secondary: {
+      darker: "#650A21",
+      dark: "#991F3D",
+      regular: "#E31937",
+      light: "#FFCDD2",
+      lighter: "#FFF2F3",
     },
     grey: {
       darker: "#383D3E",
