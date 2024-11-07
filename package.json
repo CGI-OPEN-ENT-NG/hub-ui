@@ -21,6 +21,7 @@
     "@fontsource/roboto": "5.1.0",
     "@mui/material": "^6",
     "@storybook/addon-a11y": "8.4.2",
+    "@storybook/addon-docs": "8.4.2",
     "@storybook/addon-essentials": "8.4.2",
     "@storybook/addon-interactions": "8.4.2",
     "@storybook/addon-links": "8.4.2",

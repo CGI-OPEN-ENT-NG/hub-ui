@@ -5,6 +5,8 @@ const config: StorybookConfig = {
   stories: [
     "../packages/icons/src/**/*.mdx",
     "../packages/icons/src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/theme/stories/**/*.mdx",
+    "../packages/theme/stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../packages/ui/assets/*.mdx",
     "../packages/ui/assets/*.stories.@(js|jsx|ts|tsx)",
     "../packages/ui/src/**/*.mdx",
@@ -19,9 +21,10 @@ const config: StorybookConfig = {
   },
   addons: [
     "@storybook/addon-a11y",
-    "@storybook/addon-links",
+    "@storybook/addon-docs",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-links",
     "@storybook/addon-themes",
   ],
   typescript: {

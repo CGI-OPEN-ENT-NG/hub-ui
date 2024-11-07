@@ -1,8 +1,5 @@
 // .storybook/preview.ts
-import {
-  CssBaseline,
-  Experimental_CssVarsProvider as CssVarsProvider,
-} from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 
 import { defaultMuiTheme, imtMuiTheme } from "../packages/theme/src/themes";
@@ -21,7 +18,7 @@ export const decorators = [
       imt: imtMuiTheme,
     },
     defaultTheme: "default",
-    Provider: CssVarsProvider,
+    Provider: ThemeProvider,
     GlobalStyles: CssBaseline,
   }),
 ];
