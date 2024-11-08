@@ -13,7 +13,6 @@ import {
   MenuItem,
   PasswordInput,
   SearchInput,
-  StandardButton,
   Tab,
   TextInput,
   Tooltip,
@@ -24,13 +23,14 @@ import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import MUIButton from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import React, { useState } from "react";
 import "./App.css";
 import ExampleComponent from "./components/ExampleComponent";
 
-const StyleButton = styled(StandardButton)(({ theme }) => ({
+const StyleButton = styled(MUIButton)(({ theme }) => ({
   backgroundColor: theme.vars.palette.primary.main,
   "&:hover": {
     backgroundColor: theme.vars.palette.primary.main,
