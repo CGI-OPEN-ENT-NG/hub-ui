@@ -101,6 +101,17 @@ export const getMuiTheme = (
               },
             },
           },
+          MuiOutlinedInput: {
+            styleOverrides: {
+              input: {
+                "&:-webkit-autofill": {
+                  "-webkit-box-shadow": "0 0 0 100px var(--text-primary) inset",
+                  "-webkit-text-fill-color": "var(--text-primary)",
+                  "caret-color": "#000000",
+                },
+              },
+            },
+          },
           MuiTab: {
             styleOverrides: {
               root: {
