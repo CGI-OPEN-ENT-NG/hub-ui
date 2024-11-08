@@ -12,11 +12,11 @@ const theme: Theme = {
       lighter: "#E6E3F3",
     },
     secondary: {
-      darker: "#650A21",
-      dark: "#991F3D",
-      regular: "#E31937",
-      light: "#FFCDD2",
-      lighter: "#FFF2F3",
+      darker: "#000919",
+      dark: "#1D1339",
+      regular: "#251452",
+      light: "#A28CD9",
+      lighter: "#EDE7FE",
     },
     grey: {
       darker: "#383D3E",
