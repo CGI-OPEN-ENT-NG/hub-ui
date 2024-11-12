@@ -3,14 +3,11 @@ import svgr from "vite-plugin-svgr";
 
 const config: StorybookConfig = {
   stories: [
-    "../packages/icons/src/**/*.mdx",
-    "../packages/icons/src/**/*.stories.@(js|jsx|ts|tsx)",
-    "../packages/theme/stories/**/*.mdx",
-    "../packages/theme/stories/**/*.stories.@(js|jsx|ts|tsx)",
-    "../packages/ui/assets/*.mdx",
-    "../packages/ui/assets/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/icons/docs/**/*.mdx",
+    "../packages/theme/docs/**/*.mdx",
+    "../packages/theme/docs/**/*.stories.@(ts|tsx)",
     "../packages/ui/src/**/*.mdx",
-    "../packages/ui/src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/ui/src/**/*.stories.@(ts|tsx)",
   ],
   async viteFinal(config) {
     const { mergeConfig } = await import("vite");
