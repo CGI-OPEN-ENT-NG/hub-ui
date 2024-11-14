@@ -5,7 +5,7 @@ import {
 import merge from "deepmerge";
 import { PropsWithChildren } from "react";
 import { getMuiTheme } from "./mui";
-import { defaultTheme, imtMuiOptions, imtTheme } from "./themes";
+import { crnaTheme, defaultTheme, imtMuiOptions, imtTheme } from "./themes";
 import { Theme } from "./types/theme";
 
 const expandTheme = (
@@ -13,6 +13,8 @@ const expandTheme = (
   options?: ThemeProviderProps["options"]
 ) => {
   switch (id) {
+    case "crna":
+      return getMuiTheme(crnaTheme, options);
     case "imt":
       return getMuiTheme(
         imtTheme,
@@ -29,7 +31,7 @@ export type ThemeProviderProps = PropsWithChildren<
     options?: Partial<CssVarsThemeOptions>;
   } & (
     | {
-        themeId: "default" | "imt";
+        themeId: "crna" | "default" | "imt";
         customTheme?: never;
       }
     | {

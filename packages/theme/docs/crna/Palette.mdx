@@ -1,0 +1,110 @@
+{/* Palette.mdx */}
+
+import { ColorItem, ColorPalette, Meta, Title } from "@storybook/blocks";
+import { crnaMuiTheme } from "../../src/themes";
+
+<Meta title="Themes/CRNA/Palette" />
+
+# Palette
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="theme.palette.primary"
+    colors={{
+      darker: crnaMuiTheme.palette.primary.darker,
+      dark: crnaMuiTheme.palette.primary.dark,
+      main: crnaMuiTheme.palette.primary.main,
+      light: crnaMuiTheme.palette.primary.light,
+      lighter: crnaMuiTheme.palette.primary.lighter,
+    }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="theme.palette.secondary"
+    colors={{
+      darker: crnaMuiTheme.palette.secondary.darker,
+      dark: crnaMuiTheme.palette.secondary.dark,
+      main: crnaMuiTheme.palette.secondary.main,
+      light: crnaMuiTheme.palette.secondary.light,
+      lighter: crnaMuiTheme.palette.secondary.lighter,
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="theme.palette.error"
+    colors={{
+      dark: crnaMuiTheme.palette.error.dark,
+      main: crnaMuiTheme.palette.error.main,
+      light: crnaMuiTheme.palette.error.light,
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="theme.palette.warning"
+    colors={{
+      dark: crnaMuiTheme.palette.warning.dark,
+      main: crnaMuiTheme.palette.warning.main,
+      light: crnaMuiTheme.palette.warning.light,
+    }}
+  />
+  <ColorItem
+    title="Info"
+    subtitle="theme.palette.info"
+    colors={{
+      dark: crnaMuiTheme.palette.info.dark,
+      main: crnaMuiTheme.palette.info.main,
+      light: crnaMuiTheme.palette.info.light,
+    }}
+  />
+  <ColorItem
+    title="Success"
+    subtitle="theme.palette.success"
+    colors={{
+      dark: crnaMuiTheme.palette.success.dark,
+      main: crnaMuiTheme.palette.success.main,
+      light: crnaMuiTheme.palette.success.light,
+    }}
+  />
+  <ColorItem
+    title="Common"
+    subtitle="theme.palette.common"
+    colors={{
+      black: crnaMuiTheme.palette.common.black,
+      white: crnaMuiTheme.palette.common.white,
+    }}
+  />
+  <ColorItem
+    title="Grey"
+    subtitle="theme.palette.grey"
+    colors={{
+      darker: crnaMuiTheme.palette.grey.darker,
+      dark: crnaMuiTheme.palette.grey.dark,
+      main: crnaMuiTheme.palette.grey.main,
+      light: crnaMuiTheme.palette.grey.light,
+      lighter: crnaMuiTheme.palette.grey.lighter,
+    }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="theme.palette.text"
+    colors={{
+      primary: crnaMuiTheme.palette.text.primary,
+      secondary: crnaMuiTheme.palette.text.secondary,
+      disabled: crnaMuiTheme.palette.text.disabled,
+    }}
+  />
+  <ColorItem
+    title="Divider"
+    subtitle="theme.palette.divider"
+    colors={{ divider: crnaMuiTheme.palette.divider }}
+  />
+  <ColorItem
+    title="Background"
+    subtitle="theme.palette.background"
+    colors={{
+      paper: crnaMuiTheme.palette.background.paper,
+      default: crnaMuiTheme.palette.background.default,
+    }}
+  />
+</ColorPalette>
