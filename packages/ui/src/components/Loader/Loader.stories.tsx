@@ -1,18 +1,14 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import Loader from "./Loader";
 
-// Définissez le type de l'objet default
-const stories: Meta<StoryFn<any>> = {
+const meta: Meta<typeof Loader> = {
   title: "Components/Loader",
   component: Loader,
-  argTypes: {
-    // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
-  },
 };
+export default meta;
 
-const Template: StoryFn<any> = (args) => <Loader {...args} />;
+type Story = StoryObj<typeof Loader>;
 
-export const Default: any = Template.bind({});
-Default.args = {};
-
-export default stories;
+export const Default: Story = {
+  args: {},
+};

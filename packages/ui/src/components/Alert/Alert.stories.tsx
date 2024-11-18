@@ -1,18 +1,38 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import Alert from "./Alert";
 
-const stories: Meta<StoryFn<any>> = {
-    title: "Components/Alert",
-    component: Alert,
-    argTypes: {
-        // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
-    },
+const meta: Meta<typeof Alert> = {
+  title: "Components/Alert",
+  component: Alert,
+};
+export default meta;
+
+type Story = StoryObj<typeof Alert>;
+
+export const Error: Story = {
+  args: {
+    severity: "error",
+    children: "This is an alert of type error",
+  },
 };
 
-const Template: StoryFn<any> = (args) => <Alert {...args}>This is an alert of type {args.severity}</Alert>;
-
-export const Default: any = Template.bind({});
-Default.args = {
+export const Info: Story = {
+  args: {
+    severity: "info",
+    children: "This is an alert of type info",
+  },
 };
 
-export default stories;
+export const Success: Story = {
+  args: {
+    severity: "success",
+    children: "This is an alert of type success",
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    severity: "warning",
+    children: "This is an alert of type warning",
+  },
+};

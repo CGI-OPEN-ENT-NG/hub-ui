@@ -1,32 +1,28 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import FileList from "./FileList";
 
-// Définissez le type de l'objet default
-const stories: Meta<StoryFn<any>> = {
+const meta: Meta<typeof FileList> = {
   title: "Components/FileList",
   component: FileList,
-  argTypes: {
-    // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
+};
+export default meta;
+
+type Story = StoryObj<typeof FileList>;
+
+export const Default: Story = {
+  args: {
+    files: [
+      {
+        name: "sample.csv",
+        size: 500,
+        uploading: false,
+      },
+      {
+        name: "components_lists_filelist.png",
+        size: 1780,
+        uploading: true,
+      },
+    ],
+    onDelete: (file: any) => alert("delete"),
   },
 };
-
-const Template: StoryFn<any> = (args) => <FileList {...args} />;
-
-export const Default: any = Template.bind({});
-Default.args = {
-  files: [
-    {
-      name: "sample.csv",
-      size: 500,
-      uploading: false,
-    },
-    {
-      name: "components_lists_filelist.png",
-      size: 1780,
-      uploading: true,
-    },
-  ],
-  onDelete: (file: any) => alert("delete"),
-};
-
-export default stories;

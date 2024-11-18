@@ -4,14 +4,13 @@ import { ThemeProvider } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Typography, { TypographyProps } from "@mui/material/Typography";
 import React, { FunctionComponent } from "react";
-import { defaultMuiTheme, imtMuiTheme } from "../../src";
+import { imtMuiTheme } from "../../src";
 
 type FontDetailProps = Pick<TypographyProps, "variant">;
 
 const FontDetails: FunctionComponent<FontDetailProps> = ({ variant }) => {
   if (!variant) return null;
-  const { fontFamily, fontSize, fontWeight } =
-    defaultMuiTheme.typography[variant];
+  const { fontFamily, fontSize, fontWeight } = imtMuiTheme.typography[variant];
 
   return (
     <Stack direction="row" spacing={2} mt={1}>

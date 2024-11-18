@@ -1,21 +1,17 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import EmptyState from "./EmptyState";
 
-// Définissez le type de l'objet default
-const stories: Meta<StoryFn<any>> = {
+const meta: Meta<typeof EmptyState> = {
   title: "Components/EmptyState",
   component: EmptyState,
-  argTypes: {
-    // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
+};
+export default meta;
+
+type Story = StoryObj<typeof EmptyState>;
+
+export const Default: Story = {
+  args: {
+    svgName: "client-error",
+    title: "Une erreur est  survenue",
   },
 };
-
-const Template: StoryFn<any> = (args) => <EmptyState {...args} />;
-
-export const Default: any = Template.bind({});
-Default.args = {
-  svgName: "client-error",
-  title: "Une erreur est  survenue",
-};
-
-export default stories;

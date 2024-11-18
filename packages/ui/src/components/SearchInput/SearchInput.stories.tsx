@@ -1,20 +1,16 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import SearchInput from "./SearchInput";
 
-// Définissez le type de l'objet default
-const stories: Meta<StoryFn<any>> = {
+const meta: Meta<typeof SearchInput> = {
   title: "Components/SearchInput",
   component: SearchInput,
-  argTypes: {
-    // Définissez ici vos paramètres d'histoires spécifiques aux arguments (args).
+};
+export default meta;
+
+type Story = StoryObj<typeof SearchInput>;
+
+export const Default: Story = {
+  args: {
+    placeholder: "Rechercher",
   },
 };
-
-const Template: StoryFn<any> = (args) => <SearchInput {...args} />;
-
-export const Default: any = Template.bind({});
-Default.args = {
-  placeholder: "Rechercher",
-};
-
-export default stories;
