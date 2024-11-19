@@ -27,6 +27,7 @@ export const getMuiTheme = (
                 lighter: theme.palette.primary.lighter,
                 dark: theme.palette.primary.dark,
                 darker: theme.palette.primary.darker,
+                contrastText: theme.palette.primary.contrastText,
               },
               secondary: {
                 main: theme.palette.secondary.regular,
@@ -34,6 +35,7 @@ export const getMuiTheme = (
                 lighter: theme.palette.secondary.lighter,
                 dark: theme.palette.secondary.dark,
                 darker: theme.palette.secondary.darker,
+                contrastText: theme.palette.secondary.contrastText,
               },
               grey: {
                 main: theme.palette.grey.regular,
@@ -42,50 +44,29 @@ export const getMuiTheme = (
                 dark: theme.palette.grey.dark,
                 darker: theme.palette.grey.darker,
               },
-              red: {
-                main: theme.palette.red.regular,
-                light: theme.palette.red.light,
-                dark: theme.palette.red.dark,
-              },
-              purple: {
-                main: theme.palette.purple.regular,
-                light: theme.palette.purple.light,
-                dark: theme.palette.purple.dark,
-              },
-              blue: {
-                main: theme.palette.blue.regular,
-                light: theme.palette.blue.light,
-                dark: theme.palette.blue.dark,
-              },
-              green: {
-                main: theme.palette.green.regular,
-                light: theme.palette.green.light,
-                dark: theme.palette.green.dark,
-              },
-              yellow: {
-                main: theme.palette.yellow.regular,
-                light: theme.palette.yellow.light,
-                dark: theme.palette.yellow.dark,
-              },
               error: {
                 main: theme.palette.red.regular,
                 light: theme.palette.red.light,
                 dark: theme.palette.red.dark,
+                contrastText: theme.palette.red.contrastText,
               },
               warning: {
                 main: theme.palette.yellow.regular,
                 light: theme.palette.yellow.light,
                 dark: theme.palette.yellow.dark,
+                contrastText: theme.palette.yellow.contrastText,
               },
               info: {
                 main: theme.palette.blue.regular,
                 light: theme.palette.blue.light,
                 dark: theme.palette.blue.dark,
+                contrastText: theme.palette.blue.contrastText,
               },
               success: {
                 main: theme.palette.green.regular,
                 light: theme.palette.green.light,
                 dark: theme.palette.green.dark,
+                contrastText: theme.palette.green.contrastText,
               },
             },
           },
