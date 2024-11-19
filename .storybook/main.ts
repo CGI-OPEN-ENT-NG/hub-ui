@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     "../packages/theme/docs/**/*.mdx",
     "../packages/theme/docs/**/*.stories.@(ts|tsx)",
     "../packages/ui/src/**/*.mdx",
-    "../packages/ui/src/**/*.stories.@(ts|tsx)",
+    "../packages/ui/src/components/stories/*.stories.@(ts|tsx)",
   ],
   async viteFinal(config) {
     const { mergeConfig } = await import("vite");
