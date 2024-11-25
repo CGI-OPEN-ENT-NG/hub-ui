@@ -30,7 +30,7 @@ runLocalUi() {
 
 # run storybook
 storybook() {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run storybook
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" app pnpm run storybook --no-open
 }
 
 # build icons library
