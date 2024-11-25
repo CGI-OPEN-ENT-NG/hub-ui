@@ -120,3 +120,4 @@ export * from "./PasswordInput";
 export * from "./QueryError";
 export * from "./SearchInput";
 export * from "./TextInput";
+export * from "./ImagePicker";
