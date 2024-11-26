@@ -4,24 +4,40 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import {
   useDropzone,
   type DropzoneProps as ReactDropzoneProps,
 } from "react-dropzone";
 
 export type ImagePickerProps = {
-  defaultLabel?: string;
-  dragLabel?: string;
+  defaultLabel?: ReactNode;
+  dragLabel?: ReactNode;
   information?: string;
   onFileChange?: (file: File | null) => void;
+  width?: string;
+  height?: string;
 } & ReactDropzoneProps;
 
+const ImagePickerDefaultLabel: FC = () => (
+  <Typography textAlign="center">
+    <Box component="span" fontWeight="bold">Glissez-déposez</Box> ou <Box component="span" fontWeight="bold">cliquez</Box> pour choisir une image
+  </Typography>
+)
+
+const ImagePickerDefaultDragLabel: FC = () => (
+  <Typography textAlign="center">
+    <Box component="span" fontWeight="bold">Glissez</Box> une image
+  </Typography>
+)
+
 const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
-  defaultLabel = "Glissez-déposez ou cliquez pour choisir une image",
-  dragLabel = "Glissez une image",
-  information = "PNG, JPEG, GIF, JPG",
+  defaultLabel = <ImagePickerDefaultLabel />,
+  dragLabel = <ImagePickerDefaultDragLabel />,
+  information,
   onFileChange = (file: File | null) => {},
+  width = "100%",
+  height = "400px",
   ...otherProps
 }) => {
   const [currentFile, setCurrentFile] = useState<File | null>(null);
@@ -59,14 +75,18 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
       justifyContent="center"
       alignItems="center"
       spacing={1}
-      width="100%"
+      width={width}
       minWidth="200px"
+      minHeight="200px"
+      height={height}
       padding={1}
       border="1px dashed"
       borderColor="grey.main"
       borderRadius={1}
       sx={{
         cursor: "pointer",
+        position: "relative",
+        background: `${!currentFile && "linear-gradient(180deg, #F5F7F9 0%, #FFF 100%)"}`,
       }}
       {...getRootProps({
         onClick: open
@@ -77,8 +97,16 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
         <>
           {isDragActive ? (
             <>
-              <AddPhotoAlternateIcon color="primary" />
-              <Typography textAlign="center">{dragLabel}</Typography>
+              <AddPhotoAlternateIcon color="primary" style={{
+                width: "4rem",
+                height: "4rem",
+              }}/>
+              {dragLabel}
+              {information && (
+                <Typography textAlign="center" fontSize="0.875rem" color="grey">
+                  {information}
+                </Typography>
+              )}
             </>
           ) : (
             <Box sx={{
@@ -89,10 +117,10 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
               gap: "0.5rem"
             }}>
               <AddPhotoAlternateIcon color="primary" style={{
-                width: "2.5rem",
-                height: "2.5rem",
+                width: "4rem",
+                height: "4rem",
               }}/>
-              <Typography textAlign="center">{defaultLabel}</Typography>
+              {defaultLabel}
               {information && (
                 <Typography textAlign="center" fontSize="0.875rem" color="grey">
                   {information}
@@ -102,7 +130,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
           )}
         </>
       ) : (
-        <Box sx={{ position: "relative" }}>
+        <>
           <Box
             sx={{
               position: "absolute",
@@ -115,7 +143,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
             <Box
               onClick={handleEdit}
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "common.white",
                 display: "flex",
                 borderRadius: "3px",
                 alignItems: "center",
@@ -124,6 +152,12 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
                 width: "2rem",
                 height: "2rem",
                 cursor: "pointer",
+                '&:hover': {
+                  backgroundColor: "common.black",
+                  '& .MuiSvgIcon-root': {
+                    fill: (theme) => theme.palette.common.white,
+                  }
+                }
               }}
             >
               <CreateIcon fontSize="small"/>
@@ -131,7 +165,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
             <Box
               onClick={handleDelete}
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "common.white",
                 display: "flex",
                 borderRadius: "3px",
                 alignItems: "center",
@@ -140,6 +174,12 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
                 width: "2rem",
                 height: "2rem",
                 cursor: "pointer",
+                '&:hover': {
+                  backgroundColor: "common.black",
+                  '& .MuiSvgIcon-root': {
+                    fill: (theme) => theme.palette.common.white,
+                  }
+                }
               }}
             >
               <DeleteIcon fontSize="small" />
@@ -149,16 +189,14 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
             src={URL.createObjectURL(currentFile)}
             alt={currentFile.name}
             style={{
-              width: "100%",
-              height: "auto",
-              minWidth: "100px",
-              maxWidth: "300px",
-              maxHeight: "300px",
+              width: "auto",
+              height: "100%",
+              maxWidth: "100%",
               objectFit: "cover",
               borderRadius: "8px",
             }}
           />
-        </Box>
+        </>
       )}
     </Stack>
   );
