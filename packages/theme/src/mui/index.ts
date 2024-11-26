@@ -115,6 +115,7 @@ export const getMuiTheme = (
           },
         },
         typography: {
+          fontFamily: "Roboto",
           h1: {
             fontSize: "1.5rem",
           },
