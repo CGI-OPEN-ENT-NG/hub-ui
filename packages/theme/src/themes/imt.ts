@@ -64,6 +64,18 @@ const muiOptions = {
       },
     },
   },
+  components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.secondary.regular,
+          "&:hover": {
+            color: theme.palette.primary.regular,
+          },
+        },
+      },
+    },
+  },
   typography: {
     fontFamily: "Helvetica",
   },

@@ -72,16 +72,6 @@ export const getMuiTheme = (
           },
         },
         components: {
-          MuiIconButton: {
-            styleOverrides: {
-              root: {
-                color: theme.palette.secondary.regular,
-                "&:hover": {
-                  color: theme.palette.primary.regular,
-                },
-              },
-            },
-          },
           MuiOutlinedInput: {
             styleOverrides: {
               input: {
