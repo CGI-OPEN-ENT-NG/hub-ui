@@ -51,7 +51,7 @@ export const Default: Story = {
         console.log("Image supprimé")
       }
     },
-    width: "400px",
-    height: "400px"
+    width: "160px",
+    height: "160px"
   },
 };

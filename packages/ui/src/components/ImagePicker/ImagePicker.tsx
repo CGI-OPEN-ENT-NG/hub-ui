@@ -20,13 +20,13 @@ export type ImagePickerProps = {
 } & ReactDropzoneProps;
 
 const ImagePickerDefaultLabel: FC = () => (
-  <Typography textAlign="center">
+  <Typography textAlign="center" fontSize="14px" color='grey.darker'>
     <Box component="span" fontWeight="bold">Glissez-déposez</Box> ou <Box component="span" fontWeight="bold">cliquez</Box> pour choisir une image
   </Typography>
 )
 
 const ImagePickerDefaultDragLabel: FC = () => (
-  <Typography textAlign="center">
+  <Typography textAlign="center" fontSize="14px" color='grey.darker'>
     <Box component="span" fontWeight="bold">Glissez</Box> une image
   </Typography>
 )
@@ -36,8 +36,8 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
   dragLabel = <ImagePickerDefaultDragLabel />,
   information,
   onFileChange = (file: File | null) => {},
-  width = "100%",
-  height = "400px",
+  width = "160px",
+  height = "160px",
   ...otherProps
 }) => {
   const [currentFile, setCurrentFile] = useState<File | null>(null);
@@ -74,19 +74,17 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
       direction="column"
       justifyContent="center"
       alignItems="center"
-      spacing={1}
       width={width}
-      minWidth="200px"
-      minHeight="200px"
+      minWidth="150px"
+      minHeight="150px"
       height={height}
-      padding={1}
-      border="1px dashed"
-      borderColor="grey.main"
       borderRadius={1}
       sx={{
         cursor: "pointer",
         position: "relative",
         background: `${!currentFile && "linear-gradient(180deg, #F5F7F9 0%, #FFF 100%)"}`,
+        border: `${!currentFile && "1px dashed"}`,
+        borderColor: (theme) => !currentFile && theme.palette.grey.main,
       }}
       {...getRootProps({
         onClick: open
@@ -98,12 +96,12 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
           {isDragActive ? (
             <>
               <AddPhotoAlternateIcon color="primary" style={{
-                width: "4rem",
-                height: "4rem",
+                width: "2.5rem",
+                height: "2.5rem",
               }}/>
               {dragLabel}
               {information && (
-                <Typography textAlign="center" fontSize="0.875rem" color="grey">
+                <Typography textAlign="center" fontSize="12px" color="grey">
                   {information}
                 </Typography>
               )}
@@ -114,15 +112,15 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
               flexDirection: "column",
               alignItems: "center",
               padding: "0.5rem",
-              gap: "0.5rem"
+              gap: "0.3rem"
             }}>
               <AddPhotoAlternateIcon color="primary" style={{
-                width: "4rem",
-                height: "4rem",
+                width: "2.5rem",
+                height: "2.5rem",
               }}/>
               {defaultLabel}
               {information && (
-                <Typography textAlign="center" fontSize="0.875rem" color="grey">
+                <Typography textAlign="center" fontSize="12px" color="grey">
                   {information}
                 </Typography>
               )}
@@ -137,7 +135,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
               top: "0.5rem",
               right: "0.5rem",
               display: "flex",
-              gap: "0.5rem",
+              gap: "0.3rem",
             }}
           >
             <Box
@@ -153,7 +151,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
                 height: "2rem",
                 cursor: "pointer",
                 '&:hover': {
-                  backgroundColor: "common.black",
+                  backgroundColor: "grey.darker",
                   '& .MuiSvgIcon-root': {
                     fill: (theme) => theme.palette.common.white,
                   }
@@ -175,7 +173,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
                 height: "2rem",
                 cursor: "pointer",
                 '&:hover': {
-                  backgroundColor: "common.black",
+                  backgroundColor: "grey.darker",
                   '& .MuiSvgIcon-root': {
                     fill: (theme) => theme.palette.common.white,
                   }
@@ -193,7 +191,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
               height: "100%",
               maxWidth: "100%",
               objectFit: "cover",
-              borderRadius: "8px",
+              borderRadius: "5px",
             }}
           />
         </>
