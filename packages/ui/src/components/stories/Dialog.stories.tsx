@@ -51,11 +51,31 @@ const Dialog = (props: DialogProps) => {
 const meta: Meta<typeof Dialog> = {
   title: "Components/Dialog",
   component: Dialog,
+  argTypes: {
+    disableEscapeKeyDown: {
+      control: "boolean",
+    },
+    fullScreen: {
+      control: "boolean",
+    },
+    fullWidth: {
+      control: "boolean",
+    },
+    maxWidth: {
+      control: "select",
+      options: ["xs", "sm", "md", "lg", "xl", false],
+    },
+  },
 };
 export default meta;
 
 type Story = StoryObj<typeof Dialog>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    disableEscapeKeyDown: false,
+    fullScreen: false,
+    fullWidth: false,
+    maxWidth: "sm",
+  },
 };

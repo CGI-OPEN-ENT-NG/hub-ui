@@ -98,11 +98,6 @@ export const getMuiTheme = (
               root: {
                 textTransform: "none",
                 fontSize: "1rem",
-                color: theme.palette.secondary.regular,
-                "&.Mui-selected": {
-                  color: theme.palette.secondary.regular,
-                  fontWeight: 600,
-                },
               },
             },
           },
