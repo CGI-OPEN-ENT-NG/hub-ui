@@ -11,8 +11,8 @@ import { useState } from "react";
 const Select = (props: SelectProps) => {
   const [status, setStatus] = useState("pending");
 
-  const handleChange = (event: SelectChangeEvent<string>) =>
-    setStatus(event.target.value);
+  const handleChange = (event: SelectChangeEvent<unknown>) =>
+    setStatus(event.target.value as string);
 
   return (
     <FormControl variant={props.variant} sx={{ width: "10rem" }}>

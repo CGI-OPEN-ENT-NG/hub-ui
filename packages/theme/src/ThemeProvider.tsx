@@ -1,8 +1,5 @@
-import {
-  CssVarsThemeOptions,
-  ThemeProvider as MuiThemeProvider,
-} from "@mui/material";
-import merge from "deepmerge";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
+import { deepmerge } from "@mui/utils";
 import { PropsWithChildren } from "react";
 import { getMuiTheme } from "./mui";
 import {
@@ -12,7 +9,7 @@ import {
   imtMuiOptions,
   imtTheme,
 } from "./themes";
-import { Theme } from "./types/theme";
+import { CreateThemeOptions, Theme } from "./types";
 
 const expandTheme = (
   id: ThemeProviderProps["themeId"],
@@ -26,7 +23,7 @@ const expandTheme = (
     case "imt":
       return getMuiTheme(
         imtTheme,
-        options ? merge(imtMuiOptions, options) : imtMuiOptions
+        options ? deepmerge(imtMuiOptions, options) : imtMuiOptions
       );
     case "default":
     default:
@@ -36,7 +33,8 @@ const expandTheme = (
 
 export type ThemeProviderProps = PropsWithChildren<
   {
-    options?: Partial<CssVarsThemeOptions>;
+    defaultMode?: "light" | "dark" | "system";
+    options?: CreateThemeOptions;
   } & (
     | {
         themeId: "campus" | "crna" | "default" | "imt";
@@ -52,6 +50,7 @@ export type ThemeProviderProps = PropsWithChildren<
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   children,
   customTheme,
+  defaultMode = "light",
   options,
   themeId,
 }) => {
@@ -59,5 +58,9 @@ export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
     ? expandTheme(themeId, options)
     : getMuiTheme(customTheme, options);
 
-  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
+  return (
+    <MuiThemeProvider theme={theme} defaultMode={defaultMode}>
+      {children}
+    </MuiThemeProvider>
+  );
 };

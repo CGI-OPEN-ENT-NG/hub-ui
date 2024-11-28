@@ -1,74 +1,63 @@
 import { frFR } from "@mui/material/locale";
-import {
-  createTheme,
-  CssVarsThemeOptions,
-  Theme as MuiTheme,
-} from "@mui/material/styles";
+import { createTheme, Theme as MuiTheme } from "@mui/material/styles";
+import { deepmerge } from "@mui/utils";
 import { frFR as dateFrFR } from "@mui/x-date-pickers/locales";
-import merge from "deepmerge";
-import { Theme } from "../types";
+import { CreateThemeOptions, Theme } from "../types";
 
 export const getMuiTheme = (
   theme: Theme,
-  options: Partial<CssVarsThemeOptions> = {}
+  options: CreateThemeOptions = {}
 ): MuiTheme =>
   createTheme(
-    merge(
+    deepmerge(
       {
         cssVariables: {
           cssVarPrefix: "theme",
         },
         colorSchemes: {
-          light: {
-            palette: {
-              primary: {
-                main: theme.palette.primary.regular,
-                light: theme.palette.primary.light,
-                lighter: theme.palette.primary.lighter,
-                dark: theme.palette.primary.dark,
-                darker: theme.palette.primary.darker,
-                contrastText: theme.palette.primary.contrastText,
-              },
-              secondary: {
-                main: theme.palette.secondary.regular,
-                light: theme.palette.secondary.light,
-                lighter: theme.palette.secondary.lighter,
-                dark: theme.palette.secondary.dark,
-                darker: theme.palette.secondary.darker,
-                contrastText: theme.palette.secondary.contrastText,
-              },
-              grey: {
-                main: theme.palette.grey.regular,
-                light: theme.palette.grey.light,
-                lighter: theme.palette.grey.lighter,
-                dark: theme.palette.grey.dark,
-                darker: theme.palette.grey.darker,
-              },
-              error: {
-                main: theme.palette.red.regular,
-                light: theme.palette.red.light,
-                dark: theme.palette.red.dark,
-                contrastText: theme.palette.red.contrastText,
-              },
-              warning: {
-                main: theme.palette.yellow.regular,
-                light: theme.palette.yellow.light,
-                dark: theme.palette.yellow.dark,
-                contrastText: theme.palette.yellow.contrastText,
-              },
-              info: {
-                main: theme.palette.blue.regular,
-                light: theme.palette.blue.light,
-                dark: theme.palette.blue.dark,
-                contrastText: theme.palette.blue.contrastText,
-              },
-              success: {
-                main: theme.palette.green.regular,
-                light: theme.palette.green.light,
-                dark: theme.palette.green.dark,
-                contrastText: theme.palette.green.contrastText,
-              },
-            },
+          light: true,
+          dark: false,
+        },
+        palette: {
+          primary: {
+            main: theme.palette.primary.regular,
+            light: theme.palette.primary.light,
+            lighter: theme.palette.primary.lighter,
+            dark: theme.palette.primary.dark,
+            darker: theme.palette.primary.darker,
+            contrastText: theme.palette.primary.contrastText,
+          },
+          secondary: {
+            main: theme.palette.secondary.regular,
+            light: theme.palette.secondary.light,
+            lighter: theme.palette.secondary.lighter,
+            dark: theme.palette.secondary.dark,
+            darker: theme.palette.secondary.darker,
+            contrastText: theme.palette.secondary.contrastText,
+          },
+          error: {
+            main: theme.palette.red.regular,
+            light: theme.palette.red.light,
+            dark: theme.palette.red.dark,
+            contrastText: theme.palette.red.contrastText,
+          },
+          warning: {
+            main: theme.palette.yellow.regular,
+            light: theme.palette.yellow.light,
+            dark: theme.palette.yellow.dark,
+            contrastText: theme.palette.yellow.contrastText,
+          },
+          info: {
+            main: theme.palette.blue.regular,
+            light: theme.palette.blue.light,
+            dark: theme.palette.blue.dark,
+            contrastText: theme.palette.blue.contrastText,
+          },
+          success: {
+            main: theme.palette.green.regular,
+            light: theme.palette.green.light,
+            dark: theme.palette.green.dark,
+            contrastText: theme.palette.green.contrastText,
           },
         },
         components: {
