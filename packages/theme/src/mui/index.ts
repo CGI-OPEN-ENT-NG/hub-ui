@@ -59,6 +59,13 @@ export const getMuiTheme = (
             dark: theme.palette.green.dark,
             contrastText: theme.palette.green.contrastText,
           },
+          grey: {
+            main: theme.palette.grey.regular,
+            light: theme.palette.grey.light,
+            lighter: theme.palette.grey.lighter,
+            dark: theme.palette.grey.dark,
+            darker: theme.palette.grey.darker,
+          },
         },
         components: {
           MuiOutlinedInput: {

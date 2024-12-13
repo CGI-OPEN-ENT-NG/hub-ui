@@ -1,3 +1,3 @@
 export * from "./ThemeProvider";
 export * from "./themes";
-export * from "./types/theme"
+export * from "./types";
