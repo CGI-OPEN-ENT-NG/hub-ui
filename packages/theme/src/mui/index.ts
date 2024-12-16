@@ -68,6 +68,39 @@ export const getMuiTheme = (
           },
         },
         components: {
+          MuiDialog: {
+            styleOverrides: {
+              paper: {
+                borderRadius: 10,
+              },
+            },
+          },
+          MuiDialogActions: {
+            styleOverrides: {
+              root: {
+                padding: 24,
+              },
+              spacing: {
+                "& > :nth-child(2)": {
+                  marginLeft: 16,
+                },
+              },
+            },
+          },
+          MuiDialogContent: {
+            styleOverrides: {
+              root: {
+                paddingBottom: 0,
+              },
+            },
+          },
+          MuiDialogTitle: {
+            styleOverrides: {
+              root: {
+                padding: 24,
+              },
+            },
+          },
           MuiOutlinedInput: {
             styleOverrides: {
               input: {

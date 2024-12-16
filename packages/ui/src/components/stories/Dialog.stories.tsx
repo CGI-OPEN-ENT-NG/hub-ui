@@ -1,4 +1,3 @@
-import MUIDialog, { DialogProps } from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -6,6 +5,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Button } from "../Button";
+import { Dialog as CustomDialog, DialogProps } from "../Dialog";
 
 const Dialog = (props: DialogProps) => {
   const [isOpen, setOpen] = useState(false);
@@ -19,7 +19,7 @@ const Dialog = (props: DialogProps) => {
       <Button variant="outlined" onClick={openDialog}>
         Open dialog
       </Button>
-      <MUIDialog {...props} open={isOpen} onClose={closeDialog}>
+      <CustomDialog {...props} open={isOpen} onClose={closeDialog}>
         <DialogTitle>Dialog title</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -39,11 +39,11 @@ const Dialog = (props: DialogProps) => {
           <Button variant="text" onClick={closeDialog}>
             Cancel
           </Button>
-          <Button variant="text" onClick={() => true}>
+          <Button variant="contained" onClick={() => true}>
             Save
           </Button>
         </DialogActions>
-      </MUIDialog>
+      </CustomDialog>
     </>
   );
 };
@@ -51,6 +51,14 @@ const Dialog = (props: DialogProps) => {
 const meta: Meta<typeof Dialog> = {
   title: "Components/Dialog",
   component: Dialog,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "This example is made with DialogTitle, DialogContent, DialogContentText and DialogActions but the dialog children are entirely up to you.",
+      },
+    },
+  },
   argTypes: {
     disableEscapeKeyDown: {
       control: "boolean",
@@ -65,6 +73,9 @@ const meta: Meta<typeof Dialog> = {
       control: "select",
       options: ["xs", "sm", "md", "lg", "xl", false],
     },
+    showCloseButton: {
+      control: "boolean",
+    },
   },
 };
 export default meta;
@@ -77,5 +88,6 @@ export const Default: Story = {
     fullScreen: false,
     fullWidth: false,
     maxWidth: "sm",
+    showCloseButton: true,
   },
 };
