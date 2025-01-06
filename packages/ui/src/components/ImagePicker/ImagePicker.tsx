@@ -39,10 +39,10 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
   onFileChange = (file: File | null) => {},
   width = "160px",
   height = "160px",
-  initialFile,
+  initialFile = null,
   ...otherProps
 }) => {
-  const [currentFile, setCurrentFile] = useState<File | null>(null);
+  const [currentFile, setCurrentFile] = useState<string | File | null>(initialFile);
 
   const handleDrop = (acceptedFiles: File[]) => {
     const selectedFile = acceptedFiles[0] || null;
@@ -84,16 +84,16 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
       sx={{
         cursor: "pointer",
         position: "relative",
-        background: `${!currentFile && !initialFile && "linear-gradient(180deg, #F5F7F9 0%, #FFF 100%)"}`,
-        border: `${!currentFile && !initialFile && "1px dashed"}`,
-        borderColor: (theme) => !currentFile && !initialFile && theme.palette.grey.main,
+        background: `${!currentFile && "linear-gradient(180deg, #F5F7F9 0%, #FFF 100%)"}`,
+        border: `${!currentFile && "1px dashed"}`,
+        borderColor: (theme) => !currentFile && theme.palette.grey.main,
       }}
       {...getRootProps({
         onClick: open
       })}
     >
       <input {...getInputProps()} />
-      {!currentFile && !initialFile ? (
+      {!currentFile ? (
         <>
           {isDragActive ? (
             <>
@@ -186,24 +186,8 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
             </Box>
           </Box>
           <img
-            src={
-              currentFile
-                ? URL.createObjectURL(currentFile)
-                : typeof initialFile === "string"
-                ? initialFile
-                : initialFile
-                ? URL.createObjectURL(initialFile)
-                : undefined
-            }
-            alt={
-              currentFile
-                ? currentFile.name
-                : typeof initialFile === "string"
-                ? "Image"
-                : initialFile
-                ? initialFile.name
-                : "No image available"
-            }
+            src={typeof currentFile === "string" ? currentFile : URL.createObjectURL(currentFile)}
+            alt={typeof currentFile === "string" ? currentFile : currentFile.name}
             style={{
               width: "auto",
               height: "100%",
