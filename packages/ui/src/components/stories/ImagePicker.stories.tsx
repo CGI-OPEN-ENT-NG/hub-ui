@@ -35,6 +35,13 @@ const meta: Meta<typeof ImagePicker> = {
         type: { summary: "(file: File | null) => void" },
       },
     },
+    initialFile: {
+      description: "Ajouter une image initiale",
+      control: "text",
+      table: {
+        type: { summary: "string | File" },
+      },
+    }
   }
 };
 export default meta;
@@ -52,6 +59,6 @@ export const Default: Story = {
       }
     },
     width: "160px",
-    height: "160px"
+    height: "160px",
   },
 };
