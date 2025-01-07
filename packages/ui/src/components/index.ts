@@ -114,6 +114,7 @@ export * from "./Button";
 export * from "./DatePicker";
 export * from "./Dialog";
 export * from "./Dropzone";
+export * from "./EllipsisWithTooltip";
 export * from "./EmptyState";
 export * from "./FileList";
 export * from "./Heading";
