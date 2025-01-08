@@ -1,3 +1,4 @@
+import { alpha } from "@mui/material/styles";
 import { getMuiTheme } from "../mui";
 import { getTailwindThemeConfig } from "../tailwind";
 import { Theme } from "../types";
@@ -65,6 +66,43 @@ const muiOptions = {
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          variants: [
+            {
+              props: { variant: "outlined", color: "primary" },
+              style: {
+                borderColor: alpha(theme.palette.secondary.regular, 0.5),
+                color: theme.palette.secondary.regular,
+                "&:hover": {
+                  backgroundColor: theme.palette.secondary.regular,
+                  color: "white",
+                },
+              },
+            },
+            {
+              props: { variant: "outlined", color: "secondary" },
+              style: {
+                "&:hover": {
+                  backgroundColor: theme.palette.secondary.regular,
+                  color: "white",
+                },
+              },
+            },
+            {
+              props: { variant: "outlined", color: "error" },
+              style: {
+                "&:hover": {
+                  backgroundColor: theme.palette.red.regular,
+                  color: "white",
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
     MuiIconButton: {
       styleOverrides: {
         root: {
@@ -77,7 +115,7 @@ const muiOptions = {
     },
   },
   typography: {
-    fontFamily: "Helvetica",
+    fontFamily: '"Helvetica", "Roboto", "Arial", sans-serif',
   },
 };
 

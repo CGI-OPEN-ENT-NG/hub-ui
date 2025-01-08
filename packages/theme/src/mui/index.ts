@@ -68,6 +68,41 @@ export const getMuiTheme = (
           },
         },
         components: {
+          MuiButton: {
+            styleOverrides: {
+              root: {
+                variants: [
+                  {
+                    props: { variant: "outlined", color: "primary" },
+                    style: {
+                      "&:hover": {
+                        backgroundColor: theme.palette.primary.regular,
+                        color: "white",
+                      },
+                    },
+                  },
+                  {
+                    props: { variant: "outlined", color: "secondary" },
+                    style: {
+                      "&:hover": {
+                        backgroundColor: theme.palette.secondary.regular,
+                        color: "white",
+                      },
+                    },
+                  },
+                  {
+                    props: { variant: "outlined", color: "error" },
+                    style: {
+                      "&:hover": {
+                        backgroundColor: theme.palette.red.regular,
+                        color: "white",
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
           MuiDialog: {
             styleOverrides: {
               paper: {
