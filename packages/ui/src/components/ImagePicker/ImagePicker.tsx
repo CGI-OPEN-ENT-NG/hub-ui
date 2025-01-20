@@ -189,7 +189,7 @@ const ImagePicker: React.FunctionComponent<ImagePickerProps> = ({
             src={typeof currentFile === "string" ? currentFile : URL.createObjectURL(currentFile)}
             alt={typeof currentFile === "string" ? currentFile : currentFile.name}
             style={{
-              width: "auto",
+              width: "100%",
               height: "100%",
               maxWidth: "100%",
               objectFit: "cover",
